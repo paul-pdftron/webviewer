@@ -76,8 +76,8 @@
       });
       document.getElementById('enable-snap-mode').addEventListener('change', event => {
         const enableSnapMode = event.target.checked;
-        leftPanelInstance.docViewer.getTool('AnnotationCreateArrow').setSnapMode(enableSnapMode ? leftPanelInstance.docViewer.SnapMode.e_DefaultSnapMode : null);
-        rightPanelInstance.docViewer.getTool('AnnotationCreateArrow').setSnapMode(enableSnapMode ? rightPanelInstance.docViewer.SnapMode.e_DefaultSnapMode : null);
+        leftPanelInstance.docViewer.getTool('AnnotationCreateArrow').setSnapMode(enableSnapMode ? leftPanelInstance.docViewer.SnapMode.DEFAULT : null);
+        rightPanelInstance.docViewer.getTool('AnnotationCreateArrow').setSnapMode(enableSnapMode ? rightPanelInstance.docViewer.SnapMode.DEFAULT : null);
       });
     }
   };

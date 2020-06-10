@@ -152,7 +152,7 @@
       return;
     }
 
-    const midPanelFirstDocCanvas = instances[PANEL_IDS.MID_PANEL].documentContainer.querySelector(`.canvas${firstDocIndex}`);
+    const midPanelFirstDocCanvas = instances[PANEL_IDS.MID_PANEL].documentContainer.querySelector(`.canvas${firstDocIndex + 1}`);
     if (!midPanelFirstDocCanvas) {
       return;
     }
@@ -213,7 +213,7 @@
       // load whole canvas for that alignment and diffing can be done correctly
       // if zoomed in a lot, midPanelFirstDocCanvas will only give the view port of the document container
       instances[PANEL_IDS.LEFT_PANEL].instance.docViewer.getDocument().loadCanvasAsync({
-        pageIndex: firstDocIndex,
+        pageNumber: firstDocIndex + 1,
         pageRotation: instances[PANEL_IDS.MID_PANEL].instance.docViewer.getRotation(),
         getZoom: () => {
           return instances[PANEL_IDS.MID_PANEL].instance.docViewer.getZoom();
@@ -228,7 +228,7 @@
   };
 
   const createDiffedAlignedCanvas = (firstDocIndex, secondDocIndex, canvasToAlign) => {
-    const midPanelFirstDocCanvas = instances[PANEL_IDS.MID_PANEL].documentContainer.querySelector(`.canvas${firstDocIndex}`);
+    const midPanelFirstDocCanvas = instances[PANEL_IDS.MID_PANEL].documentContainer.querySelector(`.canvas${firstDocIndex + 1}`);
     if (!midPanelFirstDocCanvas) {
       return;
     }
@@ -291,13 +291,13 @@
   };
 
   const updatePage = (doc, documentContainer, instance, pageIndex) => {
-    const firstDocCanvas = documentContainer.querySelector(`.canvas${pageIndex}`);
+    const firstDocCanvas = documentContainer.querySelector(`.canvas${pageIndex + 1}`);
     if (!firstDocCanvas || pageIndex > doc.getPageCount() - 1) {
       return;
     }
     const isViewportRender = firstDocCanvas.style.left !== '';
     return doc.loadCanvasAsync({
-      pageIndex,
+      pageNumber: pageIndex + 1,
       pageRotation: instance.docViewer.getRotation(),
       getZoom: () => {
         return instance.docViewer.getZoom();
@@ -331,6 +331,9 @@
     const filename = typeof path === 'object' ? path.name : path || '';
     const isOfficeFile = filename.endsWith('docx') || filename.endsWith('pptx') || filename.endsWith('xlsx');
 
+    // replace with your license key here as it needs to be passed when instantiating the worker transport promise
+    const licenseKey = undefined;
+
     // Use existing workers
     if (isOfficeFile && officeWorkerTransportPromise) {
       return officeWorkerTransportPromise;
@@ -342,13 +345,13 @@
 
     return CoreControls.getDefaultBackendType().then(backendType => {
       if (path && isOfficeFile) {
-        officeWorkerTransportPromise = CoreControls.initOfficeWorkerTransports(backendType, {});
+        officeWorkerTransportPromise = CoreControls.initOfficeWorkerTransports(backendType, {}, licenseKey);
 
         return officeWorkerTransportPromise;
       }
 
       // Use PDF worker by default
-      pdfWorkerTransportPromise = CoreControls.initPDFWorkerTransports(backendType, {});
+      pdfWorkerTransportPromise = CoreControls.initPDFWorkerTransports(backendType, {}, licenseKey);
 
       return pdfWorkerTransportPromise;
     });
@@ -436,7 +439,7 @@
     }
 
     instances[PANEL_IDS.MID_PANEL].newDoc.loadCanvasAsync({
-      pageIndex: secondDocIndex,
+      pageNumber: secondDocIndex + 1,
       // load canvas with pdf at 0 degrees of rotation so that it can be applied to returned canvas
       // else rotation will be applied twice
       pageRotation: (4 - initialRotation) % 4,
@@ -471,7 +474,8 @@
       ).then(instance => {
         samplesSetup(instance);
         const docViewer = instance.docViewer;
-        instance.disableTools();
+        instance.disableFeatures([instance.Feature.Annotations]);
+        instance.setToolMode('AnnotationEdit');
         const documentContainer = viewerElement.querySelector('iframe').contentDocument.querySelector('.DocumentContainer');
         docViewer.on('documentLoaded', () => {
           instance.setLayoutMode(instance.LayoutMode.Single);
@@ -679,14 +683,16 @@
         header.update(items);
       });
 
-      instance.docViewer.on('pageComplete', completedPageIndex => {
-        pageCompleteRenderRect[completedPageIndex] = lastRenderRect[completedPageIndex];
-        update(PANEL_IDS.MID_PANEL, completedPageIndex);
+      instance.docViewer.on('pageComplete', completedPageNumber => {
+        const pageIndex = completedPageNumber - 1;
+
+        pageCompleteRenderRect[pageIndex] = lastRenderRect[pageIndex];
+        update(PANEL_IDS.MID_PANEL, pageIndex);
       });
 
       instance.docViewer.on('beginRendering', () => {
         const pageIndex = instance.docViewer.getCurrentPage() - 1;
-        lastRenderRect[pageIndex] = instance.docViewer.getViewportRegionRect(pageIndex);
+        lastRenderRect[pageIndex] = instance.docViewer.getViewportRegionRect(pageIndex + 1);
         if (currentLoadCanvas[pageIndex]) {
           const newDoc = instances[PANEL_IDS.MID_PANEL].newDoc;
           newDoc.cancelLoadCanvas(currentLoadCanvas[pageIndex]);
@@ -697,7 +703,8 @@
         const displayMode = instance.docViewer.getDisplayModeManager().getDisplayMode();
         const visiblePages = displayMode.getVisiblePages();
 
-        visiblePages.forEach(pageIndex => {
+        visiblePages.forEach(pageNumber => {
+          const pageIndex = pageNumber - 1;
           lastRenderRect[pageIndex] = pageCompleteRenderRect[pageIndex];
           update(PANEL_IDS.MID_PANEL, pageIndex);
         });
@@ -705,7 +712,7 @@
         if (hasPointsForAlignment()) {
           // re-align after zoom / rotation is done
           instances[PANEL_IDS.MID_PANEL].newDoc.loadCanvasAsync({
-            pageIndex: secondDocIndex,
+            pageNumber: secondDocIndex + 1,
             // load canvas witih pdf at 0 degrees of rotation so that it can be applied to returned canvas
             // else rotation will be applied twice
             pageRotation: (4 - initialRotation) % 4,

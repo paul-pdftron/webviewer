@@ -33,10 +33,11 @@
   // As this matrix accounts for scaling / zoom / rotation
   const retrievePageMatrix = (instance, pageIndex) => {
     const docViewer = instance.docViewer;
-    const pageRotation = docViewer.getCompleteRotation(pageIndex + 1);
-    const pageWidth = docViewer.getPageWidth(pageIndex);
-    const pageHeight = docViewer.getPageHeight(pageIndex);
-    const zoom = docViewer.getPageZoom(pageIndex);
+    const pageNumber = pageIndex + 1;
+    const pageRotation = docViewer.getCompleteRotation(pageNumber);
+    const pageWidth = docViewer.getPageWidth(pageNumber);
+    const pageHeight = docViewer.getPageHeight(pageNumber);
+    const zoom = docViewer.getPageZoom(pageNumber);
 
     // defined in CoreControls
     const pageMatrix = window.getPageMatrix(zoom, pageRotation, { width: pageWidth, height: pageHeight }, 0, true, instance.iframeWindow.utils.getCanvasMultiplier());

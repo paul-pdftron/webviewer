@@ -31,7 +31,6 @@ WebViewer(
     instance.loadDocument(document.getElementById('url').value);
   };
 
-  instance.disableTools();
-  instance.enableTools(['AnnotationCreateRedaction']);
+  instance.setToolbarGroup('toolbarGroup-Edit');
   instance.setToolMode('AnnotationCreateRedaction');
 });
