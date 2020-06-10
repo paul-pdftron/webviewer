@@ -22,6 +22,18 @@ const addFormAnnot = () => {
   }
 };
 
+const onFieldTypeValueChanged = () => {
+  const dropdownVal = document.getElementById('fieldType').value;
+  const multilineCheckboxEl = document.getElementById('multiline');
+  // disable multiline option as it doesn't apply to non-text fields
+  if (dropdownVal !== 'text') {
+    multilineCheckboxEl.disabled = true;
+    multilineCheckboxEl.checked = false;
+  } else {
+    multilineCheckboxEl.disabled = false;
+  }
+};
+
 // Event listeners
 viewerElement.addEventListener('ready', () => {
   viewerWindow = viewerElement.querySelector('iframe').contentWindow;
@@ -70,3 +82,10 @@ addElement.addEventListener('dragend', e => {
 document.getElementById('Apply').addEventListener('click', () => {
   viewerWindow.convertAnnotToFormField();
 });
+
+document.getElementById('fieldType').addEventListener('change', () => {
+  onFieldTypeValueChanged();
+});
+// in case first dropdown value on init is not of type text
+// disable multiline checkbox
+onFieldTypeValueChanged();

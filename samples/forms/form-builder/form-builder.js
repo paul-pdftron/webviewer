@@ -8,6 +8,7 @@ WebViewer(
   samplesSetup(instance);
   let dropPoint = {};
   const { docViewer, Annotations, annotManager, iframeWindow } = instance;
+  const { WidgetFlags } = Annotations;
   const fieldManager = annotManager.getFieldManager();
 
   iframeWindow.convertAnnotToFormField = () => {
@@ -20,12 +21,12 @@ WebViewer(
       let field;
       if (annot.getCustomData('type') !== '') {
         // set readonly flag if necessary
-        const flags = new Annotations.WidgetFlags();
+        const flags = new WidgetFlags();
         if (annot.getCustomData('flag').readOnly) {
-          flags.set('ReadOnly', true);
+          flags.set(WidgetFlags['READ_ONLY'], true);
         }
         if (annot.getCustomData('flag').multiline) {
-          flags.set('Multiline', true);
+          flags.set(WidgetFlags['MULTILINE'], true);
         }
 
         // add it to clean up placeholder annots
@@ -60,7 +61,7 @@ WebViewer(
             },
           });
         } else if (annot.getCustomData('type') === 'CHECK') {
-          flags.set('Edit', true);
+          flags.set(WidgetFlags.EDIT, true);
           const font = new Annotations.Font({ name: 'Helvetica' });
           field = new Annotations.Forms.Field(annot.getContents() + Date.now() + index, {
             type: 'Btn',
@@ -136,13 +137,13 @@ WebViewer(
     if (!!dropPoint.x && page.first == null) {
       return; // don't add field to an invalid page location
     }
-    const pageIdx = page.first !== null ? page.first : docViewer.getCurrentPage() - 1;
-    const pageInfo = doc.getPageInfo(pageIdx);
-    const pagePoint = displayMode.windowToPage(dropPoint, pageIdx);
+    const pageNumber = page.first !== null ? page.first : docViewer.getCurrentPage();
+    const pageInfo = doc.getPageInfo(pageNumber);
+    const pagePoint = displayMode.windowToPage(dropPoint, pageNumber);
 
     const textAnnot = new Annotations.FreeTextAnnotation();
-    textAnnot.PageNumber = pageIdx + 1;
-    const rotation = docViewer.getCompleteRotation(pageIdx + 1) * 90;
+    textAnnot.PageNumber = pageNumber;
+    const rotation = docViewer.getCompleteRotation(pageNumber) * 90;
     textAnnot.Rotation = rotation;
     if (type === 'CHECK') {
       textAnnot.Width = 25 / zoom;

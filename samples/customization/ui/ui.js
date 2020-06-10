@@ -50,6 +50,15 @@ WebViewer(
     };
   });
 
+  document.getElementById('ribbons').onchange = e => {
+    // Enable/disable ribbons
+    if (e.target.checked) {
+      instance.enableFeatures([instance.Feature.Ribbons]);
+    } else {
+      instance.disableFeatures([instance.Feature.Ribbons]);
+    }
+  };
+
   document.getElementById('text-selection').onchange = e => {
     // Enable/disable text selection
     if (e.target.checked) {
@@ -135,7 +144,7 @@ WebViewer(
   document.getElementsByName('theme').forEach(radioInput => {
     radioInput.onchange = e => {
       if (e.target.id === 'light' && e.target.checked) {
-        instance.setTheme('default');
+        instance.setTheme('light');
       } else {
         instance.setTheme('dark');
       }
