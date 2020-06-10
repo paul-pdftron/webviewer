@@ -29,22 +29,19 @@ WebViewer(
   document.getElementById('justin').onchange = () => {
     annotManager.setCurrentUser('Justin');
     annotManager.setIsAdminUser(true);
-    annotManager.setReadOnly(false);
-    instance.setToolMode('AnnotationEdit');
+    instance.setReadOnly(false);
   };
 
   document.getElementById('sally').onchange = () => {
     annotManager.setCurrentUser('Sally');
     annotManager.setIsAdminUser(false);
-    annotManager.setReadOnly(false);
-    instance.setToolMode('AnnotationEdit');
+    instance.setReadOnly(false);
   };
 
   document.getElementById('brian').onchange = () => {
     annotManager.setCurrentUser('Brian');
     annotManager.setIsAdminUser(false);
-    annotManager.setReadOnly(true);
-    instance.setToolMode('AnnotationEdit');
+    instance.setReadOnly(true);
   };
 
   document.getElementById('display').onchange = e => {

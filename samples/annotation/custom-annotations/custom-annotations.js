@@ -46,14 +46,19 @@
         TriangleAnnotation,
         annotation => isTriangleAnnot(annotation)
       );
+
+      const triangleButton = {
+        type: 'toolButton',
+        toolName: TRIANGLE_TOOL_NAME,
+      };
+
       instance.setHeaderItems(header => {
-        const triangleButton = {
-          type: 'toolButton',
-          toolName: TRIANGLE_TOOL_NAME,
-        };
-        header.get('freeHandToolGroupButton').insertBefore(triangleButton);
-        instance.setToolMode(TRIANGLE_TOOL_NAME);
+        header
+          .getHeader('toolbarGroup-Annotate')
+          .get('highlightToolGroupButton')
+          .insertBefore(triangleButton);
       });
+      instance.setToolMode(TRIANGLE_TOOL_NAME);
     };
 
     const addCustomStampTool = () => {
@@ -68,21 +73,14 @@
 
       // Add tool button in header
       instance.setHeaderItems(header => {
-        header.get('freeHandToolGroupButton').insertBefore({
-          type: 'toolButton',
-          toolName: 'CustomStampTool',
-          hidden: ['tablet', 'mobile'],
-        });
         header
-          .getHeader('tools')
-          .get('freeHandToolGroupButton')
+          .getHeader('toolbarGroup-Annotate')
+          .get('highlightToolGroupButton')
           .insertBefore({
             type: 'toolButton',
             toolName: 'CustomStampTool',
-            hidden: ['desktop'],
           });
       });
-
       instance.setToolMode('CustomStampTool');
     };
 
@@ -117,7 +115,7 @@
       return false;
     };
 
-    const dropPoint = {};
+    let dropPoint = {};
     instance.iframeWindow.document.body.ondrop = e => {
       const scrollElement = instance.docViewer.getScrollViewElement();
       const scrollLeft = scrollElement.scrollLeft || 0;
@@ -137,14 +135,14 @@
       if (!!point.x && page.first == null) {
         return; // don't add to an invalid page location
       }
-      const pageIdx = page.first !== null ? page.first : docViewer.getCurrentPage() - 1;
-      const pageInfo = doc.getPageInfo(pageIdx);
-      const pagePoint = displayMode.windowToPage(point, pageIdx);
+      const pageNumber = page.first !== null ? page.first : docViewer.getCurrentPage();
+      const pageInfo = doc.getPageInfo(pageNumber);
+      const pagePoint = displayMode.windowToPage(point, pageNumber);
       const zoom = docViewer.getZoom();
 
       const stampAnnot = new Annotations.StampAnnotation();
-      stampAnnot.PageNumber = pageIdx + 1;
-      const rotation = docViewer.getCompleteRotation(pageIdx + 1) * 90;
+      stampAnnot.PageNumber = pageNumber;
+      const rotation = docViewer.getCompleteRotation(pageNumber) * 90;
       stampAnnot.Rotation = rotation;
       if (rotation === 270 || rotation === 90) {
         stampAnnot.Width = rect.height / zoom;
