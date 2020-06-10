@@ -65,7 +65,7 @@ WebViewer(
 
     rotateButton.onclick = () => {
       // Rotate pages
-      doc.rotatePages([Number(editDropdown.value)], CoreControls.PageRotation.e_90);
+      doc.rotatePages([Number(editDropdown.value)], CoreControls.PageRotation.E_90);
     };
 
     cropButton.onclick = () => {
@@ -92,7 +92,7 @@ WebViewer(
     };
 
     insertButton.onclick = () => {
-      const info = doc.getPageInfo(0);
+      const info = doc.getPageInfo(1);
       const width = info.width;
       const height = info.height;
       const newPageCount = doc.getPageCount() + 1;

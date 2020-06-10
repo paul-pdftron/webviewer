@@ -20,6 +20,7 @@ WebViewer(
     path: '../../../lib',
     fullAPI: true,
     initialDoc: '../../../samples/files/op-blend-test.pdf',
+    enableFilePicker: true,
   },
   document.getElementById('viewer')
 ).then(instance => {
@@ -27,19 +28,26 @@ WebViewer(
   const { docViewer } = instance;
   const colorsElement = document.getElementById('colors');
 
+  let colorSeparationLoaded = false;
   docViewer.on('documentLoaded', () => {
-    const doc = docViewer.getDocument();
+    colorsElement.innerHTML = '';
 
+    const doc = docViewer.getDocument();
+    colorSeparationLoaded = false;
     // Enable color separation
     doc.enableColorSeparations(true);
+    // wait till the individual "colors" in the top left corner load first
+    instance.openElements(['loadingModal']);
 
     // Listen to each color in a PDF document
     doc.on('colorSeparationAdded', color => {
+      colorSeparationLoaded = true;
       const input = document.createElement('input');
       input.id = color.name;
       input.type = 'checkbox';
       input.checked = color.enabled;
       input.onchange = e => {
+        // show 'loadingModal', hide it in the 'pageComplete' event
         instance.openElements(['loadingModal']);
         // Show/hide a color
         doc.enableSeparation(color.name, e.target.checked);
@@ -59,6 +67,7 @@ WebViewer(
       colorsElement.appendChild(input);
       colorsElement.appendChild(label);
       colorsElement.appendChild(lineBreak);
+      instance.closeElements(['loadingModal']);
     });
   });
 
@@ -66,11 +75,11 @@ WebViewer(
     const mouseLocation = docViewer.getToolMode().getMouseLocation(nativeE);
     const displayMode = docViewer.getDisplayModeManager().getDisplayMode();
 
-    const pageIndex = displayMode.getSelectedPages(mouseLocation, mouseLocation).first;
-    if (pageIndex !== null) {
-      const pageCoordinate = displayMode.windowToPage(mouseLocation, pageIndex);
+    const pageNumber = displayMode.getSelectedPages(mouseLocation, mouseLocation).first;
+    if (pageNumber !== null) {
+      const pageCoordinate = displayMode.windowToPage(mouseLocation, pageNumber);
       if (pageCoordinate) {
-        const pageNumber = pageCoordinate.pageIndex + 1;
+        const pageNumber = pageCoordinate.pageNumber;
         const x = pageCoordinate.x;
         const y = pageCoordinate.y;
         const results = docViewer.getColorSeparationsAtPoint(pageNumber, x, y);
@@ -83,6 +92,10 @@ WebViewer(
   });
 
   docViewer.on('pageComplete', () => {
-    instance.closeElements(['loadingModal']);
+    // wait for the first 'colorSeparationAdded' event before closing the loading modal
+    // we don't want to hide the 'loadingModal' for the first 'pageComplete' event for the initial load
+    if (colorSeparationLoaded) {
+      instance.closeElements(['loadingModal']);
+    }
   });
 });
