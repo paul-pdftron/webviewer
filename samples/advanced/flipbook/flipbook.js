@@ -17,13 +17,13 @@ const loadingMessageElement = document.getElementById('loading-message');
 
 loadingMessageElement.innerHTML = 'Preparing document...';
 
-const source = '../../../samples/files/cheetahs.pdf';
+const source = 'https://pdftron.s3.amazonaws.com/downloads/pl/Cheetahs.pdf';
 const options = { l: window.sampleL /* license key here */ };
 
 const documentPromise = CoreControls.createDocument(source, options);
 
 documentPromise.then(doc => {
-  const info = doc.getPageInfo(0);
+  const info = doc.getPageInfo(1);
   const width = info.width;
   const height = info.height;
   const pageCount = doc.getPageCount();
@@ -44,17 +44,17 @@ documentPromise.then(doc => {
       /* eslint-disable-next-line no-loop-func */
       new Promise(resolve => {
         // Load page canvas
-        const pageIndex = i;
-        return doc.requirePage(pageIndex + 1).then(() => {
+        const pageNumber = i + 1;
+        return doc.requirePage(pageNumber).then(() => {
           return doc.loadCanvasAsync({
-            pageIndex,
+            pageNumber,
             drawComplete: (canvas, index) => {
               canvases.push({ index, canvas });
 
               loadingMessageElement.innerHTML = `Loading page canvas... (${canvases.length}/${pageCount})`;
               resolve();
             },
-            isHighResThumb: true,
+            isInternalRender: true,
           });
         });
       })

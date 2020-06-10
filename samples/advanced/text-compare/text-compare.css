@@ -1,0 +1,99 @@
+#compareContainer{
+  width: calc(100% - 330px);
+  margin-left: 325px;
+}
+
+/* top text display */
+.text-compare .viewer {
+  display: inline-block;
+  width: 50%;
+  height: calc(100% - 60px);
+  margin-top: 60px;
+  margin-left: 5px;
+  -webkit-box-shadow: 1px 1px 10px #999;
+  box-shadow: 1px 1px 10px #999;
+  overflow: scroll;
+}
+
+.text-compare#compareViewers {
+  display: flex;
+  width: 100%;
+}
+
+@media (max-width: 800px) {
+  #compareContainer{
+    width: 100%;
+    margin-left: 0;
+  }
+}
+
+#compareViewers{
+  height: 50%;
+}
+
+.viewer .section {
+  background-color: lightgrey;
+}
+
+.viewer .section p{ 
+  margin: 0px;
+}
+
+.section.identical:hover {
+  background-color: darkgray;
+  cursor: pointer;
+}
+
+.section.removed {
+  background-color: lightpink;
+}
+
+.section.added {
+  background-color: lightgreen;
+}
+
+.section.empty {
+  background-color: lightyellow;
+}
+
+span.added {
+  background-color: green;
+}
+
+span.removed {
+  background-color: red;
+}
+
+p.hidden {
+  display: none;
+ }
+
+ button.hidden {
+  display: none;
+ }
+
+/* middle controls */
+#documentToggle{
+  width: 100%;
+  height: 20px;
+  padding: 5px;
+  background-color: #00a5e4;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+/* bottom viewers */
+
+.documentsContainer{
+  height: calc(50% - 30px);
+}
+
+.documentViewer{
+  height: 100%;
+}
+
+.documentViewer.hidden {
+  height: 0px;
+}
+ 

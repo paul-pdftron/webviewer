@@ -14,17 +14,8 @@ WebViewer(
   document.getElementById('viewer')
 ).then(instance => {
   samplesSetup(instance);
-  // Hide non-measurement tools
-  instance.setHeaderItems(header => {
-    header.delete('textToolGroupButton');
-    header.delete('freeHandToolGroupButton');
-    header.delete('shapeToolGroupButton');
-    header.delete('signatureToolButton');
-    header.delete('freeTextToolButton');
-    header.delete('stickyToolButton');
-    header.delete('miscToolGroupButton');
-    header.delete('eraserToolButton');
-  });
+
+  instance.setToolbarGroup('toolbarGroup-Measure');
 
   // open notes panel by default
   instance.openElements(['notesPanel']);

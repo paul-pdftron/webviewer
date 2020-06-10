@@ -52,8 +52,8 @@ WebViewer(
   const docViewer = instance.docViewer;
   const iframeDocument = instance.iframeWindow.document;
 
-  const getPageText = pageIndex => {
-    const pageTextElement = iframeDocument.getElementById(`pageText${pageIndex}`);
+  const getPageText = pageNumber => {
+    const pageTextElement = iframeDocument.getElementById(`pageText${pageNumber}`);
     return pageTextElement ? pageTextElement.innerText : null;
   };
 
@@ -63,8 +63,7 @@ WebViewer(
     clearInterval(intervalId);
     // setInterval used in case text DOM is not ready yet
     intervalId = setInterval(() => {
-      const currentPage = docViewer.getCurrentPage() - 1;
-      const text = getPageText(currentPage);
+      const text = getPageText(docViewer.getCurrentPage());
 
       if (text) {
         readText(text);
