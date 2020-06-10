@@ -156,8 +156,10 @@
               disabled: {
                 img: refreshSVG('lightgray'),
                 onClick: () => {},
+                className: 'disable',
               },
             },
+            mount: () => {},
           });
 
           return headerItems;

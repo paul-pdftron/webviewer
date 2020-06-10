@@ -12,8 +12,8 @@ slides in the deck. The deck menu state is indicated by the presence of a class
 on the deck container.
 */
 (function($, deck, undefined) {
-  var $d = $(document);
-  var rootSlides; // Array of top level slides
+  var $d = $(document),
+    rootSlides; // Array of top level slides
 
   /*
 	Extends defaults/options.
@@ -50,8 +50,8 @@ on the deck container.
 	to the deck container.
 	*/
   $[deck]('extend', 'showMenu', function() {
-    var $c = $[deck]('getContainer');
-    var opts = $[deck]('getOptions');
+    var $c = $[deck]('getContainer'),
+      opts = $[deck]('getOptions');
 
     if ($c.hasClass(opts.classes.menu)) {
       return;
@@ -67,8 +67,8 @@ on the deck container.
         $slide.data('oldStyle', $slide.attr('style'));
         $slide.css({
           position: 'absolute',
-          left: `${(i % 4) * 25}%`,
-          top: `${Math.floor(i / 4) * 25}%`,
+          left: (i % 4) * 25 + '%',
+          top: Math.floor(i / 4) * 25 + '%',
         });
       });
     }
@@ -86,8 +86,8 @@ on the deck container.
 	option from the deck container.
 	*/
   $[deck]('extend', 'hideMenu', function() {
-    var $c = $[deck]('getContainer');
-    var opts = $[deck]('getOptions');
+    var $c = $[deck]('getContainer'),
+      opts = $[deck]('getOptions');
 
     if (!$c.hasClass(opts.classes.menu)) {
       return;
@@ -120,12 +120,12 @@ on the deck container.
   });
 
   $d.bind('deck.init', function() {
-    var opts = $[deck]('getOptions');
-    var touchEndTime = 0;
-    var currentSlide;
-    var slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
-      return `.${el}`;
-    }).join(', ');
+    var opts = $[deck]('getOptions'),
+      touchEndTime = 0,
+      currentSlide,
+      slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
+        return '.' + el;
+      }).join(', ');
 
     // Build top level slides array
     rootSlides = [];

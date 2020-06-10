@@ -16,12 +16,11 @@ slides.  More functionality is provided by wholly separate extension modules
 that use the API provided by core.
 */
 (function($, deck, document, undefined) {
-  var slides; // Array of all the uh, slides...
-  var current; // Array index of the current slide
-  var $container; // Keeping this cached
-
-  var events = {
-    /*
+  var slides, // Array of all the uh, slides...
+    current, // Array index of the current slide
+    $container, // Keeping this cached
+    events = {
+      /*
 		This event fires whenever the current slide changes, whether by way of
 		next, prev, or go. The callback function is passed two parameters, from
 		and to, equal to the indices of the old slide and the new slide
@@ -32,16 +31,16 @@ that use the API provided by core.
 		   alert('Moving from slide ' + from + ' to ' + to);
 		});
 		*/
-    change: 'deck.change',
+      change: 'deck.change',
 
-    /*
+      /*
 		This event fires at the beginning of deck initialization, after the options
 		are set but before the slides array is created.  This event makes a good hook
 		for preprocessing extensions looking to modify the deck.
 		*/
-    beforeInitialize: 'deck.beforeInit',
+      beforeInitialize: 'deck.beforeInit',
 
-    /*
+      /*
 		This event fires at the end of deck initialization. Extensions should
 		implement any code that relies on user extensible options (key bindings,
 		element selectors, classes) within a handler for this event. Native
@@ -58,63 +57,60 @@ that use the API provided by core.
 		   });
 		});
 		*/
-    initialize: 'deck.init',
-  };
-
-  var options = {};
-  var $d = $(document);
-
-  /*
+      initialize: 'deck.init',
+    },
+    options = {},
+    $d = $(document),
+    /*
 	Internal function. Updates slide and container classes based on which
 	slide is the current slide.
 	*/
-  var updateStates = function() {
-    var oc = options.classes;
-    var osc = options.selectors.container;
-    var old = $container.data('onSlide');
-    var $all = $();
+    updateStates = function() {
+      var oc = options.classes,
+        osc = options.selectors.container,
+        old = $container.data('onSlide'),
+        $all = $();
 
-    // Container state
-    $container
-      .removeClass(oc.onPrefix + old)
-      .addClass(oc.onPrefix + current)
-      .data('onSlide', current);
+      // Container state
+      $container
+        .removeClass(oc.onPrefix + old)
+        .addClass(oc.onPrefix + current)
+        .data('onSlide', current);
 
-    // Remove and re-add child-current classes for nesting
-    $(`.${oc.current}`)
-      .parentsUntil(osc)
-      .removeClass(oc.childCurrent);
-    slides[current].parentsUntil(osc).addClass(oc.childCurrent);
+      // Remove and re-add child-current classes for nesting
+      $('.' + oc.current)
+        .parentsUntil(osc)
+        .removeClass(oc.childCurrent);
+      slides[current].parentsUntil(osc).addClass(oc.childCurrent);
 
-    // Remove previous states
-    $.each(slides, function(i, el) {
-      $all = $all.add(el);
-    });
-    $all.removeClass([oc.before, oc.previous, oc.current, oc.next, oc.after].join(' '));
-
-    // Add new states back in
-    slides[current].addClass(oc.current);
-    if (current > 0) {
-      slides[current - 1].addClass(oc.previous);
-    }
-    if (current + 1 < slides.length) {
-      slides[current + 1].addClass(oc.next);
-    }
-    if (current > 1) {
-      $.each(slides.slice(0, current - 1), function(i, el) {
-        el.addClass(oc.before);
+      // Remove previous states
+      $.each(slides, function(i, el) {
+        $all = $all.add(el);
       });
-    }
-    if (current + 2 < slides.length) {
-      $.each(slides.slice(current + 2), function(i, el) {
-        el.addClass(oc.after);
-      });
-    }
-  };
+      $all.removeClass([oc.before, oc.previous, oc.current, oc.next, oc.after].join(' '));
 
-  /* Methods exposed in the jQuery.deck namespace */
-  var methods = {
-    /*
+      // Add new states back in
+      slides[current].addClass(oc.current);
+      if (current > 0) {
+        slides[current - 1].addClass(oc.previous);
+      }
+      if (current + 1 < slides.length) {
+        slides[current + 1].addClass(oc.next);
+      }
+      if (current > 1) {
+        $.each(slides.slice(0, current - 1), function(i, el) {
+          el.addClass(oc.before);
+        });
+      }
+      if (current + 2 < slides.length) {
+        $.each(slides.slice(current + 2), function(i, el) {
+          el.addClass(oc.after);
+        });
+      }
+    },
+    /* Methods exposed in the jQuery.deck namespace */
+    methods = {
+      /*
 		jQuery.deck(selector, options)
 
 		selector: string | jQuery | array
@@ -136,113 +132,113 @@ that use the API provided by core.
 		   '#etc'
 		]);
 		*/
-    init: function(elements, opts) {
-      var startTouch;
-      var tolerance;
-      var esp = function(e) {
-        e.stopPropagation();
-      };
+      init: function(elements, opts) {
+        var startTouch,
+          tolerance,
+          esp = function(e) {
+            e.stopPropagation();
+          };
 
-      options = $.extend(true, {}, $[deck].defaults, opts);
-      slides = [];
-      current = 0;
-      $container = $(options.selectors.container);
-      tolerance = options.touch.swipeTolerance;
+        options = $.extend(true, {}, $[deck].defaults, opts);
+        slides = [];
+        current = 0;
+        $container = $(options.selectors.container);
+        tolerance = options.touch.swipeTolerance;
 
-      // Pre init event for preprocessing hooks
-      $d.trigger(events.beforeInitialize);
+        // Pre init event for preprocessing hooks
+        $d.trigger(events.beforeInitialize);
 
-      // Hide the deck while states are being applied to kill transitions
-      $container.addClass(options.classes.loading);
+        // Hide the deck while states are being applied to kill transitions
+        $container.addClass(options.classes.loading);
 
-      // Fill slides array depending on parameter type
-      if ($.isArray(elements)) {
-        $.each(elements, function(i, e) {
-          slides.push($(e));
-        });
-      } else {
-        $(elements).each(function(i, e) {
-          slides.push($(e));
-        });
-      }
+        // Fill slides array depending on parameter type
+        if ($.isArray(elements)) {
+          $.each(elements, function(i, e) {
+            slides.push($(e));
+          });
+        } else {
+          $(elements).each(function(i, e) {
+            slides.push($(e));
+          });
+        }
 
-      /* Remove any previous bindings, and rebind key events */
-      $d.unbind('keydown.deck')
-        .bind('keydown.deck', function(e) {
-          if (e.which === options.keys.next || $.inArray(e.which, options.keys.next) > -1) {
-            methods.next();
+        /* Remove any previous bindings, and rebind key events */
+        $d.unbind('keydown.deck')
+          .bind('keydown.deck', function(e) {
+            if (e.which === options.keys.next || $.inArray(e.which, options.keys.next) > -1) {
+              methods.next();
+              e.preventDefault();
+            } else if (e.which === options.keys.previous || $.inArray(e.which, options.keys.previous) > -1) {
+              methods.prev();
+              e.preventDefault();
+            }
+          })
+          /* Stop propagation of key events within editable elements */
+          .undelegate('input, textarea, select, button, meter, progress, [contentEditable]', 'keydown', esp)
+          .delegate('input, textarea, select, button, meter, progress, [contentEditable]', 'keydown', esp);
+
+        /* Bind touch events for swiping between slides on touch devices */
+        $container
+          .unbind('touchstart.deck')
+          .bind('touchstart.deck', function(e) {
+            if (!startTouch) {
+              startTouch = $.extend({}, e.originalEvent.targetTouches[0]);
+            }
+          })
+          .unbind('touchmove.deck')
+          .bind('touchmove.deck', function(e) {
+            $.each(e.originalEvent.changedTouches, function(i, t) {
+              if (startTouch && t.identifier === startTouch.identifier) {
+                if (t.screenX - startTouch.screenX > tolerance || t.screenY - startTouch.screenY > tolerance) {
+                  $[deck]('prev');
+                  startTouch = undefined;
+                } else if (t.screenX - startTouch.screenX < -1 * tolerance || t.screenY - startTouch.screenY < -1 * tolerance) {
+                  $[deck]('next');
+                  startTouch = undefined;
+                }
+                return false;
+              }
+            });
             e.preventDefault();
-          } else if (e.which === options.keys.previous || $.inArray(e.which, options.keys.previous) > -1) {
-            methods.prev();
-            e.preventDefault();
-          }
-        })
-        /* Stop propagation of key events within editable elements */
-        .undelegate('input, textarea, select, button, meter, progress, [contentEditable]', 'keydown', esp)
-        .delegate('input, textarea, select, button, meter, progress, [contentEditable]', 'keydown', esp);
-
-      /* Bind touch events for swiping between slides on touch devices */
-      $container
-        .unbind('touchstart.deck')
-        .bind('touchstart.deck', function(e) {
-          if (!startTouch) {
-            startTouch = $.extend({}, e.originalEvent.targetTouches[0]);
-          }
-        })
-        .unbind('touchmove.deck')
-        .bind('touchmove.deck', function(e) {
-          $.each(e.originalEvent.changedTouches, function(i, t) {
-            if (startTouch && t.identifier === startTouch.identifier) {
-              if (t.screenX - startTouch.screenX > tolerance || t.screenY - startTouch.screenY > tolerance) {
-                $[deck]('prev');
-                startTouch = undefined;
-              } else if (t.screenX - startTouch.screenX < -1 * tolerance || t.screenY - startTouch.screenY < -1 * tolerance) {
-                $[deck]('next');
+          })
+          .unbind('touchend.deck')
+          .bind('touchend.deck', function(t) {
+            $.each(t.originalEvent.changedTouches, function(i, t) {
+              if (startTouch && t.identifier === startTouch.identifier) {
                 startTouch = undefined;
               }
-              return false;
-            }
-          });
-          e.preventDefault();
-        })
-        .unbind('touchend.deck')
-        .bind('touchend.deck', function(t) {
-          $.each(t.originalEvent.changedTouches, function(i, t) {
-            if (startTouch && t.identifier === startTouch.identifier) {
-              startTouch = undefined;
-            }
-          });
-        })
-        .scrollLeft(0)
-        .scrollTop(0);
+            });
+          })
+          .scrollLeft(0)
+          .scrollTop(0);
 
-      /*
+        /*
 			Kick iframe videos, which dont like to redraw w/ transforms.
 			Remove this if Webkit ever fixes it.
 			 */
-      $.each(slides, function(i, $el) {
-        $el.unbind('webkitTransitionEnd.deck').bind('webkitTransitionEnd.deck', function(event) {
-          if ($el.hasClass($[deck]('getOptions').classes.current)) {
-            var embeds = $(this)
-              .find('iframe')
-              .css('opacity', 0);
-            window.setTimeout(function() {
-              embeds.css('opacity', 1);
-            }, 100);
-          }
+        $.each(slides, function(i, $el) {
+          $el.unbind('webkitTransitionEnd.deck').bind('webkitTransitionEnd.deck', function(event) {
+            if ($el.hasClass($[deck]('getOptions').classes.current)) {
+              var embeds = $(this)
+                .find('iframe')
+                .css('opacity', 0);
+              window.setTimeout(function() {
+                embeds.css('opacity', 1);
+              }, 100);
+            }
+          });
         });
-      });
 
-      if (slides.length) {
-        updateStates();
-      }
+        if (slides.length) {
+          updateStates();
+        }
 
-      // Show deck again now that slides are in place
-      $container.removeClass(options.classes.loading);
-      $d.trigger(events.initialize);
-    },
+        // Show deck again now that slides are in place
+        $container.removeClass(options.classes.loading);
+        $d.trigger(events.initialize);
+      },
 
-    /*
+      /*
 		jQuery.deck('go', index)
 
 		index: integer | string
@@ -252,59 +248,59 @@ that use the API provided by core.
 		string this will move to the slide with the specified id. If index is out
 		of bounds or doesn't match a slide id the call is ignored.
 		*/
-    go: function(index) {
-      var e = $.Event(events.change);
-      var ndx;
+      go: function(index) {
+        var e = $.Event(events.change),
+          ndx;
 
-      /* Number index, easy. */
-      if (typeof index === 'number' && index >= 0 && index < slides.length) {
-        ndx = index;
-      } else if (typeof index === 'string') {
-      /* Id string index, search for it and set integer index */
-        $.each(slides, function(i, $slide) {
-          if ($slide.attr('id') === index) {
-            ndx = i;
-            return false;
-          }
-        });
-      }
+        /* Number index, easy. */
+        if (typeof index === 'number' && index >= 0 && index < slides.length) {
+          ndx = index;
+        } else if (typeof index === 'string') {
+        /* Id string index, search for it and set integer index */
+          $.each(slides, function(i, $slide) {
+            if ($slide.attr('id') === index) {
+              ndx = i;
+              return false;
+            }
+          });
+        }
 
-      /* Out of bounds, id doesn't exist, illegal input, eject */
-      if (typeof ndx === 'undefined') {
-        return;
-      }
+        /* Out of bounds, id doesn't exist, illegal input, eject */
+        if (typeof ndx === 'undefined') {
+          return;
+        }
 
-      $d.trigger(e, [current, ndx]);
-      if (e.isDefaultPrevented()) {
-        /* Trigger the event again and undo the damage done by extensions. */
-        $d.trigger(events.change, [ndx, current]);
-      } else {
-        current = ndx;
-        updateStates();
-      }
-    },
+        $d.trigger(e, [current, ndx]);
+        if (e.isDefaultPrevented()) {
+          /* Trigger the event again and undo the damage done by extensions. */
+          $d.trigger(events.change, [ndx, current]);
+        } else {
+          current = ndx;
+          updateStates();
+        }
+      },
 
-    /*
+      /*
 		jQuery.deck('next')
 
 		Moves to the next slide. If the last slide is already active, the call
 		is ignored.
 		*/
-    next: function() {
-      methods.go(current + 1);
-    },
+      next: function() {
+        methods.go(current + 1);
+      },
 
-    /*
+      /*
 		jQuery.deck('prev')
 
 		Moves to the previous slide. If the first slide is already active, the
 		call is ignored.
 		*/
-    prev: function() {
-      methods.go(current - 1);
-    },
+      prev: function() {
+        methods.go(current - 1);
+      },
 
-    /*
+      /*
 		jQuery.deck('getSlide', index)
 
 		index: integer, optional
@@ -312,44 +308,44 @@ that use the API provided by core.
 		Returns a jQuery object containing the slide at index. If index is not
 		specified, the current slide is returned.
 		*/
-    getSlide: function(index) {
-      var i = typeof index !== 'undefined' ? index : current;
-      if (typeof i !== 'number' || i < 0 || i >= slides.length) {
-        return null;
-      }
-      return slides[i];
-    },
+      getSlide: function(index) {
+        var i = typeof index !== 'undefined' ? index : current;
+        if (typeof i !== 'number' || i < 0 || i >= slides.length) {
+          return null;
+        }
+        return slides[i];
+      },
 
-    /*
+      /*
 		jQuery.deck('getSlides')
 
 		Returns all slides as an array of jQuery objects.
 		*/
-    getSlides: function() {
-      return slides;
-    },
+      getSlides: function() {
+        return slides;
+      },
 
-    /*
+      /*
 		jQuery.deck('getContainer')
 
 		Returns a jQuery object containing the deck container as defined by the
 		container option.
 		*/
-    getContainer: function() {
-      return $container;
-    },
+      getContainer: function() {
+        return $container;
+      },
 
-    /*
+      /*
 		jQuery.deck('getOptions')
 
 		Returns the options object for the deck, including any overrides that
 		were defined at initialization.
 		*/
-    getOptions: function() {
-      return options;
-    },
+      getOptions: function() {
+        return options;
+      },
 
-    /*
+      /*
 		jQuery.deck('extend', name, method)
 
 		name: string
@@ -367,10 +363,10 @@ that use the API provided by core.
 		// Alerts 'boom'
 		$.deck('alert', 'boom');
 		*/
-    extend: function(name, method) {
-      methods[name] = method;
-    },
-  };
+      extend: function(name, method) {
+        methods[name] = method;
+      },
+    };
 
   /* jQuery extension */
   $[deck] = function(method, arg) {
@@ -475,12 +471,12 @@ that use the API provided by core.
 	of view prevents this.
 	*/
   $d.bind('deck.change', function(e, from, to) {
-    var oldFrames = $[deck]('getSlide', from).find('iframe');
-    var newFrames = $[deck]('getSlide', to).find('iframe');
+    var oldFrames = $[deck]('getSlide', from).find('iframe'),
+      newFrames = $[deck]('getSlide', to).find('iframe');
 
     oldFrames.each(function() {
-      var $this = $(this);
-      var curSrc = $this.attr('src');
+      var $this = $(this),
+        curSrc = $this.attr('src');
 
       if (curSrc) {
         $this.data('deck-src', curSrc).attr('src', '');
@@ -488,8 +484,8 @@ that use the API provided by core.
     });
 
     newFrames.each(function() {
-      var $this = $(this);
-      var originalSrc = $this.data('deck-src');
+      var $this = $(this),
+        originalSrc = $this.data('deck-src');
 
       if (originalSrc) {
         $this.attr('src', originalSrc);

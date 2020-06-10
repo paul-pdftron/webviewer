@@ -17,11 +17,11 @@
     const windowPoint = getMouseLocation(e);
 
     const page = displayMode.getSelectedPages(windowPoint, windowPoint);
-    const pageIndex = page.first !== null ? page.first : readerControl.docViewer.getCurrentPage() - 1;
+    const pageNumber = page.first !== null ? page.first : readerControl.docViewer.getCurrentPage();
 
     return {
-      point: displayMode.windowToPage(windowPoint, pageIndex),
-      pageNumber: pageIndex + 1,
+      point: displayMode.windowToPage(windowPoint, pageNumber),
+      pageNumber,
     };
   };
 
@@ -36,22 +36,15 @@
       panel: {
         dataElement: 'snapModesPanel',
         render: () => {
-          const {
-            /* eslint-disable camelcase */
-            e_DefaultSnapMode,
-            e_PointOnLine,
-            e_LineMidpoint,
-            e_LineIntersection,
-            e_PathEndpoint,
-          } = readerControl.docViewer.SnapMode;
+          const { DEFAULT, POINT_ON_LINE, LINE_MID_POINT, LINE_INTERSECTION, PATH_ENDPOINT } = readerControl.docViewer.SnapMode;
 
           const buttonContainer = document.createElement('div');
           const map = {
-            Default: e_DefaultSnapMode,
-            'Point On Line': e_PointOnLine,
-            'Line Midpoint': e_LineMidpoint,
-            'Line Intersection': e_LineIntersection,
-            'Path Endpoint': e_PathEndpoint,
+            Default: DEFAULT,
+            'Point On Line': POINT_ON_LINE,
+            'Line Midpoint': LINE_MID_POINT,
+            'Line Intersection': LINE_INTERSECTION,
+            'Path Endpoint': PATH_ENDPOINT,
           };
           Object.keys(map).forEach(key => {
             const div = document.createElement('div');

@@ -8,7 +8,7 @@
   // keep track of previously created annotations so that they can be cleaned up
   let prevAnnotations = [];
 
-  const runCustomScript = (pdfDoc, layersContextID, windowCoord, pageIndex, documentViewer, Annotations, annotManager) => {
+  const runCustomScript = (pdfDoc, layersContextID, windowCoord, pageNum, documentViewer, Annotations, annotManager) => {
     const displayModeManager = documentViewer.getDisplayModeManager();
     const displayMode = displayModeManager.getDisplayMode();
     const docCore = documentViewer.getDocument();
@@ -24,26 +24,26 @@
       writer.writePlacedElement(rectElement);
     };
 
-    const DrawRectangleAnnot = async (pageIndex, x1, y1, x2, y2) => {
-      const p1 = docCore.getViewerCoordinates(pageIndex, x1, y1);
-      const p2 = docCore.getViewerCoordinates(pageIndex, x2, y2);
+    const DrawRectangleAnnot = async (pageNumber, x1, y1, x2, y2) => {
+      const p1 = docCore.getViewerCoordinates(pageNumber, x1, y1);
+      const p2 = docCore.getViewerCoordinates(pageNumber, x2, y2);
 
       const displayAnnot = new Annotations.RectangleAnnotation();
-      displayAnnot.setPageNumber(pageIndex + 1);
+      displayAnnot.setPageNumber(pageNumber);
       displayAnnot.setRect(new Annotations.Rect(p1.x, Math.min(p1.y, p2.y), p2.x, Math.max(p1.y, p2.y)));
       annotManager.addAnnotation(displayAnnot);
       prevAnnotations.push(displayAnnot);
     };
 
-    const DrawPointAnnot = async (pageIndex, x, y) => {
-      const p1 = docCore.getViewerCoordinates(pageIndex, x, y);
-      const p2 = docCore.getViewerCoordinates(pageIndex, x, y);
+    const DrawPointAnnot = async (pageNumber, x, y) => {
+      const p1 = docCore.getViewerCoordinates(pageNumber, x, y);
+      const p2 = docCore.getViewerCoordinates(pageNumber, x, y);
       p1.x -= 2;
       p1.y -= 2;
       p2.x += 2;
       p2.y += 2;
       const displayAnnot = new Annotations.RectangleAnnotation();
-      displayAnnot.setPageNumber(pageIndex + 1);
+      displayAnnot.setPageNumber(pageNumber);
 
       displayAnnot.FillColor = new Annotations.Color(255, 255, 0, 1);
       displayAnnot.StrokeColor = new Annotations.Color(255, 0, 0, 1);
@@ -54,7 +54,7 @@
     };
 
     // Draw out all path points
-    const ProcessPaths = async (opr, pointList, currTransMtx, pageIndex) => {
+    const ProcessPaths = async (opr, pointList, currTransMtx, pageNumber) => {
       let pointIndex = 0;
       if (opr.length > 4000) {
         console.log('Processing ' + opr.length + ' points. This will take significant time.');
@@ -87,7 +87,7 @@
             y1 = pointList[pointIndex];
             ++pointIndex;
             pagePoint = await currTransMtx.mult(x1, y1);
-            await DrawPointAnnot(pageIndex, pagePoint.x, pagePoint.y);
+            await DrawPointAnnot(pageNumber, pagePoint.x, pagePoint.y);
             break;
           case PDFNet.Element.PathSegmentType.e_lineto:
             // code to handle line segments
@@ -96,7 +96,7 @@
             y1 = pointList[pointIndex];
             ++pointIndex;
             pagePoint = await currTransMtx.mult(x1, y1);
-            await DrawPointAnnot(pageIndex, pagePoint.x, pagePoint.y);
+            await DrawPointAnnot(pageNumber, pagePoint.x, pagePoint.y);
             break;
           case PDFNet.Element.PathSegmentType.e_cubicto:
             // code to handle cubic segments
@@ -113,7 +113,7 @@
             y3 = pointList[pointIndex];
             ++pointIndex;
             pagePoint = await currTransMtx.mult(x3, y3);
-            await DrawPointAnnot(pageIndex, pagePoint.x, pagePoint.y);
+            await DrawPointAnnot(pageNumber, pagePoint.x, pagePoint.y);
             break;
           case PDFNet.Element.PathSegmentType.e_rect:
             // code to handle rect segments
@@ -136,10 +136,10 @@
             pagePoint3 = await currTransMtx.mult(x3, y3);
             pagePoint4 = await currTransMtx.mult(x4, y4);
 
-            await DrawPointAnnot(pageIndex, pagePoint1.x, pagePoint1.y);
-            await DrawPointAnnot(pageIndex, pagePoint2.x, pagePoint2.y);
-            await DrawPointAnnot(pageIndex, pagePoint3.x, pagePoint3.y);
-            await DrawPointAnnot(pageIndex, pagePoint4.x, pagePoint4.y);
+            await DrawPointAnnot(pageNumber, pagePoint1.x, pagePoint1.y);
+            await DrawPointAnnot(pageNumber, pagePoint2.x, pagePoint2.y);
+            await DrawPointAnnot(pageNumber, pagePoint3.x, pagePoint3.y);
+            await DrawPointAnnot(pageNumber, pagePoint4.x, pagePoint4.y);
             break;
           case PDFNet.Element.PathSegmentType.e_closepath:
             break;
@@ -148,16 +148,16 @@
         }
       }
       // ensure that we update the view
-      annotManager.drawAnnotations(pageIndex + 1);
+      annotManager.drawAnnotations(pageNumber);
     };
 
-    const ProcessElements = async (pageElementData, pageBuilder, doc, page, pageIndex, pdfMousePoint, selectTopElementOnly) => {
+    const ProcessElements = async (pageElementData, pageBuilder, doc, page, pageNumber, pdfMousePoint, selectTopElementOnly) => {
       // Read page contents, last object is top object
       let pageRotMtx = await page.getDefaultMatrix();
       pageRotMtx = await pageRotMtx.inverse();
       const rotatedMousePoint = await pageRotMtx.mult(pdfMousePoint.x, pdfMousePoint.y);
       // (optional) display mouse point
-      // await DrawPointAnnot(pageIndex, rotatedMousePoint.x, rotatedMousePoint.y);
+      // await DrawPointAnnot(pageNumber, rotatedMousePoint.x, rotatedMousePoint.y);
       for (let elementNum = pageElementData.length - 1; elementNum >= 0; elementNum--) {
         const element = pageElementData[elementNum];
         const elementBBox = element.bbox;
@@ -168,9 +168,9 @@
           // mouseclick outside of any available bbox;
           continue;
         }
-        await DrawRectangleAnnot(pageIndex, elementBBox.x1, elementBBox.y1, elementBBox.x2, elementBBox.y2);
+        await DrawRectangleAnnot(pageNumber, elementBBox.x1, elementBBox.y1, elementBBox.x2, elementBBox.y2);
         if (element.name === 'path') {
-          await ProcessPaths(element.operators, element.points, element.ctm, pageIndex);
+          await ProcessPaths(element.operators, element.points, element.ctm, pageNumber);
         }
         if (selectTopElementOnly) {
           break;
@@ -252,9 +252,8 @@
         // to select all elements underneath mouse click instead of just the top-most element, change to false.
         const selectTopElementOnly = true;
 
-        const pageNum = pageIndex + 1;
-        const viewerPageCoord = displayMode.windowToPage(windowCoord, pageIndex);
-        let pdfCoord = docCore.getPDFCoordinates(pageIndex, viewerPageCoord.x, viewerPageCoord.y);
+        const viewerPageCoord = displayMode.windowToPage(windowCoord, pageNum);
+        let pdfCoord = docCore.getPDFCoordinates(pageNum, viewerPageCoord.x, viewerPageCoord.y);
 
         const pageReader = await PDFNet.ElementReader.create();
         const pageBuilder = await PDFNet.ElementBuilder.create();
@@ -264,7 +263,7 @@
         const pageRotMtx = await currPage.getDefaultMatrix();
         pdfCoord = await pageRotMtx.mult(pdfCoord.x, pdfCoord.y);
 
-        let pageElementData = pageElementDataList[pageIndex];
+        let pageElementData = pageElementDataList[pageNum];
         let layersContext;
         // Read from the document and find its relevant elements if we haven't done so before.
         if (pageElementData === undefined) {
@@ -273,14 +272,14 @@
           pageReader.beginOnPage(currPage, layersContext);
 
           pageElementData = await ExtractElements(pageReader);
-          pageElementDataList[pageIndex] = pageElementData;
+          pageElementDataList[pageNum] = pageElementData;
           pageReader.end();
         }
 
         // Process the found elements
         currPage = await doc.getPage(pageNum);
         layersContext = new PDFNet.OCGContext(layersContextID);
-        await ProcessElements(pageElementData, pageBuilder, doc, currPage, pageIndex, pdfCoord, selectTopElementOnly);
+        await ProcessElements(pageElementData, pageBuilder, doc, currPage, pageNum, pdfCoord, selectTopElementOnly);
 
         const sq = await PDFNet.SquareAnnot.create(doc, PDFNet.Rect(10, 200, 800, 300));
         sq.setColor(await PDFNet.ColorPt.init(0, 0, 0), 3);
@@ -331,15 +330,15 @@
             const displayModeManager = documentViewer.getDisplayModeManager();
             const displayMode = displayModeManager.getDisplayMode();
             // Get which page was clicked on
-            const pageIndex = displayMode.getSelectedPages(windowCoord, windowCoord).first;
+            const pageNumber = displayMode.getSelectedPages(windowCoord, windowCoord).first;
 
             // Get the context from the doc which is used for properly reading the elements on the pdf document.
             // layers context object, whenever layers changed, want to recalculate.
             pdfDoc
-              .requirePage(pageIndex + 1)
+              .requirePage(pageNumber)
               .then(() => doc.extractPDFNetLayersContext())
               // running custom PDFNetJS script
-              .then(layersContextID => runCustomScript(pdfDoc, layersContextID, windowCoord, pageIndex, documentViewer, Annotations, annotManager))
+              .then(layersContextID => runCustomScript(pdfDoc, layersContextID, windowCoord, pageNumber, documentViewer, Annotations, annotManager))
               .then(() => {
                 console.log('finished script');
                 // refresh information on viewer and update appearance

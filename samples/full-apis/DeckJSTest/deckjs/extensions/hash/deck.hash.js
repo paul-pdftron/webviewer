@@ -17,32 +17,30 @@ kept by core, this module adds an on-slide state class that uses the id of each
 slide.
 */
 (function($, deck, window, undefined) {
-  var $d = $(document);
-  var $window = $(window);
-
-  /* Collection of internal fragment links in the deck */
-  var $internals;
-
-  /*
+  var $d = $(document),
+    $window = $(window),
+    /* Collection of internal fragment links in the deck */
+    $internals,
+    /*
 	Internal only function.  Given a string, extracts the id from the hash,
 	matches it to the appropriate slide, and navigates there.
 	*/
-  var goByHash = function(str) {
-    var id = str.substr(str.indexOf('#') + 1);
-    var slides = $[deck]('getSlides');
+    goByHash = function(str) {
+      var id = str.substr(str.indexOf('#') + 1),
+        slides = $[deck]('getSlides');
 
-    $.each(slides, function(i, $el) {
-      if ($el.attr('id') === id) {
-        $[deck]('go', i);
-        return false;
-      }
-    });
+      $.each(slides, function(i, $el) {
+        if ($el.attr('id') === id) {
+          $[deck]('go', i);
+          return false;
+        }
+      });
 
-    // If we don't set these to 0 the container scrolls due to hashchange
-    $[deck]('getContainer')
-      .scrollLeft(0)
-      .scrollTop(0);
-  };
+      // If we don't set these to 0 the container scrolls due to hashchange
+      $[deck]('getContainer')
+        .scrollLeft(0)
+        .scrollTop(0);
+    };
 
   /*
 	Extends defaults/options.
@@ -83,7 +81,7 @@ slide.
         $el.data('deckAssignedId', opts.hashPrefix + i);
       }
 
-      hash = `#${$el.attr('id')}`;
+      hash = '#' + $el.attr('id');
 
       /* Deep link to slides on init */
       if (hash === window.location.hash) {
@@ -91,7 +89,7 @@ slide.
       }
 
       /* Add internal links to this slide */
-      $internals = $internals.add(`a[href="${hash}"]`);
+      $internals = $internals.add('a[href="' + hash + '"]');
     });
 
     if (!Modernizr.hashchange) {
@@ -109,11 +107,11 @@ slide.
   })
     /* Update permalink, address bar, and state class on a slide change */
     .bind('deck.change', function(e, from, to) {
-      var hash = `#${$[deck]('getSlide', to).attr('id')}`;
-      var hashPath = window.location.href.replace(/#.*/, '') + hash;
-      var opts = $[deck]('getOptions');
-      var osp = opts.classes.onPrefix;
-      var $c = $[deck]('getContainer');
+      var hash = '#' + $[deck]('getSlide', to).attr('id'),
+        hashPath = window.location.href.replace(/#.*/, '') + hash,
+        opts = $[deck]('getOptions'),
+        osp = opts.classes.onPrefix,
+        $c = $[deck]('getContainer');
 
       $c.removeClass(osp + $[deck]('getSlide', from).attr('id'));
       $c.addClass(osp + $[deck]('getSlide', to).attr('id'));

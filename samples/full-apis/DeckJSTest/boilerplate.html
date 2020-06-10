@@ -42,7 +42,6 @@
     <script src="deckjs/extensions/navigation/deck.navigation.js"></script>
     <script src="deckjs/extensions/scale/deck.scale.js"></script>
 
-    <script src="../../../lib/ui-legacy/ControlUtils.js"></script>
     <script src="../../../lib/core/CoreControls.js"></script>
     <script src="../../../lib/core/pdf/PDFNet.js"></script>
     <script src="../Setup.js"></script>
@@ -61,9 +60,10 @@
           }
         });
 
-        var script = Modernizr.async ? 'render.js' : 'renderES5.js';
+        var script = Modernizr.async ? 'render.js' : 'render.ES5.js';
         $.getScript(script, function() {
-          $.getScript('viewer.js', function() {});
+          var viewerScript = Modernizr.async ? 'viewer.js' : 'viewer.ES5.js';
+          $.getScript(viewerScript, function() {});
         });
       });
     </script>
