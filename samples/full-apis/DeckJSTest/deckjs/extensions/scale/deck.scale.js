@@ -17,48 +17,46 @@ that need to use video may want to disable scaling to play them.  HTML5 video
 works fine.
 */
 (function($, deck, window, undefined) {
-  var $d = $(document);
-  var $w = $(window);
-  var baseHeight; // Value to scale against
-  var timer; // Timeout id for debouncing
-  var rootSlides;
-
-  /*
+  var $d = $(document),
+    $w = $(window),
+    baseHeight, // Value to scale against
+    timer, // Timeout id for debouncing
+    rootSlides,
+    /*
 	Custom helper function to fix some scaling issues with the dynamically loaded canvases.
 	*/
-  var wrapChildren = function($slide, opts) {
-    var children = $slide.children();
-    if (!children.hasClass('loading') && !children.hasClass(opts.classes.scaleSlideWrapper)) {
-      children.wrapAll(`<div class="${opts.classes.scaleSlideWrapper}"/>`);
-    }
-  };
-
-  /*
+    wrapChildren = function($slide, opts) {
+      var children = $slide.children();
+      if (!children.hasClass('loading') && !children.hasClass(opts.classes.scaleSlideWrapper)) {
+        children.wrapAll('<div class="' + opts.classes.scaleSlideWrapper + '"/>');
+      }
+    },
+    /*
 	Internal function to do all the dirty work of scaling the slides.
 	*/
-  var scaleDeck = function() {
-    var opts = $[deck]('getOptions');
-    var obh = opts.baseHeight;
-    var $container = $[deck]('getContainer');
-    var baseHeight = obh || $container.height();
+    scaleDeck = function() {
+      var opts = $[deck]('getOptions'),
+        obh = opts.baseHeight,
+        $container = $[deck]('getContainer'),
+        baseHeight = obh || $container.height();
 
-    // Scale each slide down if necessary (but don't scale up)
-    $.each(rootSlides, function(i, $slide) {
-      wrapChildren($slide, opts);
+      // Scale each slide down if necessary (but don't scale up)
+      $.each(rootSlides, function(i, $slide) {
+        wrapChildren($slide, opts);
 
-      var slideHeight = $slide.innerHeight();
-      var $scaler = $slide.find(`.${opts.classes.scaleSlideWrapper}`);
-      var scale = $container.hasClass(opts.classes.scale) ? baseHeight / slideHeight : 1;
+        var slideHeight = $slide.innerHeight(),
+          $scaler = $slide.find('.' + opts.classes.scaleSlideWrapper),
+          scale = $container.hasClass(opts.classes.scale) ? baseHeight / slideHeight : 1;
 
-      $.each('Webkit Moz O ms Khtml'.split(' '), function(i, prefix) {
-        if (scale === 1) {
-          $scaler.css(`${prefix}Transform`, '');
-        } else {
-          $scaler.css(`${prefix}Transform`, `scale(${scale})`);
-        }
+        $.each('Webkit Moz O ms Khtml'.split(' '), function(i, prefix) {
+          if (scale === 1) {
+            $scaler.css(prefix + 'Transform', '');
+          } else {
+            $scaler.css(prefix + 'Transform', 'scale(' + scale + ')');
+          }
+        });
       });
-    });
-  };
+    };
 
   /*
 	Extends defaults/options.
@@ -131,10 +129,10 @@ works fine.
   });
 
   $d.bind('deck.init', function() {
-    var opts = $[deck]('getOptions');
-    var slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
-      return `.${el}`;
-    }).join(', ');
+    var opts = $[deck]('getOptions'),
+      slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
+        return '.' + el;
+      }).join(', ');
 
     // Build top level slides array
     rootSlides = [];

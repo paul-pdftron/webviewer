@@ -10,13 +10,12 @@ https://github.com/imakewebthings/deck.js/blob/master/GPL-license.txt
 This module adds a (current)/(total) style status indicator to the deck.
 */
 (function($, deck, undefined) {
-  var $d = $(document);
+  var $d = $(document),
+    updateCurrent = function(e, from, to) {
+      var opts = $[deck]('getOptions');
 
-  var updateCurrent = function(e, from, to) {
-    var opts = $[deck]('getOptions');
-
-    $(opts.selectors.statusCurrent).text(opts.countNested ? to + 1 : $[deck]('getSlide', to).data('rootSlide'));
-  };
+      $(opts.selectors.statusCurrent).text(opts.countNested ? to + 1 : $[deck]('getSlide', to).data('rootSlide'));
+    };
 
   /*
 	Extends defaults/options.
@@ -41,10 +40,10 @@ This module adds a (current)/(total) style status indicator to the deck.
   });
 
   $d.bind('deck.init', function() {
-    var opts = $[deck]('getOptions');
-    var slides = $[deck]('getSlides');
-    var $current = $[deck]('getSlide');
-    var ndx;
+    var opts = $[deck]('getOptions'),
+      slides = $[deck]('getSlides'),
+      $current = $[deck]('getSlide'),
+      ndx;
 
     // Set total slides once
     if (opts.countNested) {
@@ -52,10 +51,10 @@ This module adds a (current)/(total) style status indicator to the deck.
     } else {
       /* Determine root slides by checking each slide's ancestor tree for
 			any of the slide classes. */
-      var rootIndex = 1;
-      var slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
-        return `.${el}`;
-      }).join(', ');
+      var rootIndex = 1,
+        slideTest = $.map([opts.classes.before, opts.classes.previous, opts.classes.current, opts.classes.next, opts.classes.after], function(el, i) {
+          return '.' + el;
+        }).join(', ');
 
       /* Store the 'real' root slide number for use during slide changes. */
       $.each(slides, function(i, $el) {

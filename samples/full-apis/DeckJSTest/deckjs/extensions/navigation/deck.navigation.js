@@ -10,25 +10,24 @@ https://github.com/imakewebthings/deck.js/blob/master/GPL-license.txt
 This module adds clickable previous and next links to the deck.
 */
 (function($, deck, undefined) {
-  var $d = $(document);
+  var $d = $(document),
+    /* Updates link hrefs, and disabled states if last/first slide */
+    updateButtons = function(e, from, to) {
+      var opts = $[deck]('getOptions'),
+        last = $[deck]('getSlides').length - 1,
+        prevSlide = $[deck]('getSlide', to - 1),
+        nextSlide = $[deck]('getSlide', to + 1),
+        hrefBase = window.location.href.replace(/#.*/, ''),
+        prevId = prevSlide ? prevSlide.attr('id') : undefined,
+        nextId = nextSlide ? nextSlide.attr('id') : undefined;
 
-  /* Updates link hrefs, and disabled states if last/first slide */
-  var updateButtons = function(e, from, to) {
-    var opts = $[deck]('getOptions');
-    var last = $[deck]('getSlides').length - 1;
-    var prevSlide = $[deck]('getSlide', to - 1);
-    var nextSlide = $[deck]('getSlide', to + 1);
-    var hrefBase = window.location.href.replace(/#.*/, '');
-    var prevId = prevSlide ? prevSlide.attr('id') : undefined;
-    var nextId = nextSlide ? nextSlide.attr('id') : undefined;
-
-    $(opts.selectors.previousLink)
-      .toggleClass(opts.classes.navDisabled, !to)
-      .attr('href', `${hrefBase}#${prevId || ''}`);
-    $(opts.selectors.nextLink)
-      .toggleClass(opts.classes.navDisabled, to === last)
-      .attr('href', `${hrefBase}#${nextId || ''}`);
-  };
+      $(opts.selectors.previousLink)
+        .toggleClass(opts.classes.navDisabled, !to)
+        .attr('href', hrefBase + '#' + (prevId || ''));
+      $(opts.selectors.nextLink)
+        .toggleClass(opts.classes.navDisabled, to === last)
+        .attr('href', hrefBase + '#' + (nextId || ''));
+    };
 
   /*
 	Extends defaults/options.
@@ -58,10 +57,10 @@ This module adds clickable previous and next links to the deck.
   });
 
   $d.bind('deck.init', function() {
-    var opts = $[deck]('getOptions');
-    var slides = $[deck]('getSlides');
-    var $current = $[deck]('getSlide');
-    var ndx;
+    var opts = $[deck]('getOptions'),
+      slides = $[deck]('getSlides'),
+      $current = $[deck]('getSlide'),
+      ndx;
 
     // Setup prev/next link events
     $(opts.selectors.previousLink)

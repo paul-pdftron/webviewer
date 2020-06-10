@@ -5,13 +5,7 @@
     return typeof e === t;
   }
   function a() {
-    var e;
-    var t;
-    var n;
-    var a;
-    var o;
-    var s;
-    var i;
+    var e, t, n, a, o, s, i;
     for (var d in b) {
       if (((e = []), (t = b[d]), t.name && (e.push(t.name.toLowerCase()), t.options && t.options.aliases && t.options.aliases.length)))
         for (n = 0; n < t.options.aliases.length; n++) e.push(t.options.aliases[n].toLowerCase());
@@ -23,20 +17,20 @@
     }
   }
   function o(e) {
-    var t = w.className;
-    var n = Modernizr._config.classPrefix || '';
+    var t = w.className,
+      n = Modernizr._config.classPrefix || '';
     if ((S && (t = t.baseVal), Modernizr._config.enableJSClass)) {
-      var r = new RegExp(`(^|\\s)${n}no-js(\\s|$)`);
-      t = t.replace(r, `$1${n}js$2`);
+      var r = new RegExp('(^|\\s)' + n + 'no-js(\\s|$)');
+      t = t.replace(r, '$1' + n + 'js$2');
     }
-    Modernizr._config.enableClasses && ((t += ` ${n}${e.join(` ${n}`)}`), S ? (w.className.baseVal = t) : (w.className = t));
+    Modernizr._config.enableClasses && ((t += ' ' + n + e.join(' ' + n)), S ? (w.className.baseVal = t) : (w.className = t));
   }
   function s(e, t) {
     if (typeof e === 'object') for (var n in e) P(e, n) && s(n, e[n]);
     else {
       e = e.toLowerCase();
-      var r = e.split('.');
-      var a = Modernizr[r[0]];
+      var r = e.split('.'),
+        a = Modernizr[r[0]];
       if ((r.length == 2 && (a = a[r[1]]), typeof a !== 'undefined')) return Modernizr;
       (t = typeof t === 'function' ? t() : t),
         r.length == 1 ? (Modernizr[r[0]] = t) : (!Modernizr[r[0]] || Modernizr[r[0]] instanceof Boolean || (Modernizr[r[0]] = new Boolean(Modernizr[r[0]])), (Modernizr[r[0]][r[1]] = t)),
@@ -49,25 +43,25 @@
     return typeof t.createElement !== 'function' ? t.createElement(arguments[0]) : S ? t.createElementNS.call(t, 'http://www.w3.org/2000/svg', arguments[0]) : t.createElement.apply(t, arguments);
   }
   function d(e, t) {
-    return !!~`${e}`.indexOf(t);
+    return !!~('' + e).indexOf(t);
   }
   function l() {
     var e = t.body;
     return e || ((e = i(S ? 'svg' : 'body')), (e.fake = !0)), e;
   }
   function c(e, n, r, a) {
-    var o;
-    var s;
-    var d;
-    var c;
-    var u = 'modernizr';
-    var f = i('div');
-    var p = l();
+    var o,
+      s,
+      d,
+      c,
+      u = 'modernizr',
+      f = i('div'),
+      p = l();
     if (parseInt(r, 10)) for (; r--; ) (d = i('div')), (d.id = a ? a[r] : u + (r + 1)), f.appendChild(d);
     return (
       (o = i('style')),
       (o.type = 'text/css'),
-      (o.id = `s${u}`),
+      (o.id = 's' + u),
       (p.fake ? p : f).appendChild(o),
       p.appendChild(f),
       o.styleSheet ? (o.styleSheet.cssText = e) : o.appendChild(t.createTextNode(e)),
@@ -81,7 +75,7 @@
   function u(e) {
     return e
       .replace(/([A-Z])/g, function(e, t) {
-        return `-${t.toLowerCase()}`;
+        return '-' + t.toLowerCase();
       })
       .replace(/^ms-/, '-ms-');
   }
@@ -92,10 +86,10 @@
       return !1;
     }
     if ('CSSSupportsRule' in e) {
-      for (var o = []; a--; ) o.push(`(${u(t[a])}:${r})`);
+      for (var o = []; a--; ) o.push('(' + u(t[a]) + ':' + r + ')');
       return (
         (o = o.join(' or ')),
-        c(`@supports (${o}) { #modernizr { position: absolute; } }`, function(e) {
+        c('@supports (' + o + ') { #modernizr { position: absolute; } }', function(e) {
           return getComputedStyle(e, null).position == 'absolute';
         })
       );
@@ -139,43 +133,43 @@
     return !1;
   }
   function h(e, t, n, a, o) {
-    var s = e.charAt(0).toUpperCase() + e.slice(1);
-    var i = `${e} ${R.join(`${s} `)}${s}`.split(' ');
-    return r(t, 'string') || r(t, 'undefined') ? g(i, t, a, o) : ((i = `${e} ${k.join(`${s} `)}${s}`.split(' ')), v(i, t, n));
+    var s = e.charAt(0).toUpperCase() + e.slice(1),
+      i = (e + ' ' + R.join(s + ' ') + s).split(' ');
+    return r(t, 'string') || r(t, 'undefined') ? g(i, t, a, o) : ((i = (e + ' ' + k.join(s + ' ') + s).split(' ')), v(i, t, n));
   }
   function y(e, t, r) {
     return h(e, n, n, t, r);
   }
-  var b = [];
-  var x = {
-    _version: '3.1.0',
-    _config: {
-      classPrefix: '',
-      enableClasses: !0,
-      enableJSClass: !0,
-      usePrefixes: !0,
+  var b = [],
+    x = {
+      _version: '3.1.0',
+      _config: {
+        classPrefix: '',
+        enableClasses: !0,
+        enableJSClass: !0,
+        usePrefixes: !0,
+      },
+      _q: [],
+      on: function(e, t) {
+        var n = this;
+        setTimeout(function() {
+          t(n[e]);
+        }, 0);
+      },
+      addTest: function(e, t, n) {
+        b.push({ name: e, fn: t, options: n });
+      },
+      addAsyncTest: function(e) {
+        b.push({ name: null, fn: e });
+      },
     },
-    _q: [],
-    on: function(e, t) {
-      var n = this;
-      setTimeout(function() {
-        t(n[e]);
-      }, 0);
-    },
-    addTest: function(e, t, n) {
-      b.push({ name: e, fn: t, options: n });
-    },
-    addAsyncTest: function(e) {
-      b.push({ name: null, fn: e });
-    },
-  };
-  var Modernizr = function() {};
+    Modernizr = function() {};
   (Modernizr.prototype = x), (Modernizr = new Modernizr());
-  var T = [];
-  var w = t.documentElement;
-  var S = w.nodeName.toLowerCase() === 'svg';
-  var C = 'Moz O ms Webkit';
-  var k = x._config.usePrefixes ? C.toLowerCase().split(' ') : [];
+  var T = [],
+    w = t.documentElement,
+    S = w.nodeName.toLowerCase() === 'svg',
+    C = 'Moz O ms Webkit',
+    k = x._config.usePrefixes ? C.toLowerCase().split(' ') : [];
   x._domPrefixes = k;
   var _ = x._config.usePrefixes ? ' -webkit- -moz- -o- -ms- '.split(' ') : [];
   x._prefixes = _;
@@ -204,8 +198,7 @@
       if (this._l[e]) {
         var n = this._l[e];
         setTimeout(function() {
-          var e;
-          var r;
+          var e, r;
           for (e = 0; e < n.length; e++) (r = n[e])(t);
         }, 0),
           delete this._l[e];
@@ -219,7 +212,7 @@
       var a;
       return t
         ? ((n && typeof n !== 'string') || (n = i(n || 'div')),
-          (t = `on${t}`),
+          (t = 'on' + t),
           (a = t in n),
           !a && r && (n.setAttribute || (n = i('div')), n.setAttribute(t, ''), (a = typeof n[t] === 'function'), n[t] !== e && (n[t] = e), n.removeAttribute(t)),
           a)
@@ -242,13 +235,13 @@
     (x.testAllProps = h),
     (x.testAllProps = y);
   var z = (x.testProp = function(e, t, r) {
-    return g([e], n, t, r);
-  });
-  var N = (x.testStyles = c);
+      return g([e], n, t, r);
+    }),
+    N = (x.testStyles = c);
   Modernizr.addTest('applicationcache', 'applicationCache' in e),
     Modernizr.addTest('audio', function() {
-      var e = i('audio');
-      var t = !1;
+      var e = i('audio'),
+        t = !1;
       try {
         (t = !!e.canPlayType) &&
           ((t = new Boolean(t)),
@@ -278,34 +271,34 @@
         : !1;
     });
   var O = function(t) {
-    var r;
-    var a = _.length;
-    var o = e.CSSRule;
+    var r,
+      a = _.length,
+      o = e.CSSRule;
     if (typeof o === 'undefined') return n;
     if (!t) return !1;
-    if (((t = t.replace(/^@/, '')), (r = `${t.replace(/-/g, '_').toUpperCase()}_RULE`), r in o)) return `@${t}`;
+    if (((t = t.replace(/^@/, '')), (r = t.replace(/-/g, '_').toUpperCase() + '_RULE'), r in o)) return '@' + t;
     for (var s = 0; a > s; s++) {
-      var i = _[s];
-      var d = `${i.toUpperCase()}_${r}`;
-      if (d in o) return `@-${i.toLowerCase()}-${t}`;
+      var i = _[s],
+        d = i.toUpperCase() + '_' + r;
+      if (d in o) return '@-' + i.toLowerCase() + '-' + t;
     }
     return !1;
   };
   x.atRule = O;
   var L = (x.prefixed = function(e, t, n) {
-    return e.indexOf('@') === 0 ? O(e) : (e.indexOf('-') != -1 && (e = p(e)), t ? h(e, t, n) : h(e, 'pfx'));
-  });
-  var B = L('indexedDB', e);
+      return e.indexOf('@') === 0 ? O(e) : (e.indexOf('-') != -1 && (e = p(e)), t ? h(e, t, n) : h(e, 'pfx'));
+    }),
+    B = L('indexedDB', e);
   Modernizr.addTest('indexeddb', !!B), B && Modernizr.addTest('indexeddb.deletedatabase', 'deleteDatabase' in B);
-  var I = i('input');
-  var j = 'autocomplete autofocus list placeholder max min multiple pattern required step'.split(' ');
-  var V = {};
+  var I = i('input'),
+    j = 'autocomplete autofocus list placeholder max min multiple pattern required step'.split(' '),
+    V = {};
   Modernizr.input = (function(t) {
     for (var n = 0, r = t.length; r > n; n++) V[t[n]] = !!(t[n] in I);
     return V.list && (V.list = !(!i('datalist') || !e.HTMLDataListElement)), V;
   })(j);
-  var W = 'search tel url email datetime date month week time datetime-local number range color'.split(' ');
-  var q = {};
+  var W = 'search tel url email datetime date month week time datetime-local number range color'.split(' '),
+    q = {};
   (Modernizr.inputtypes = (function(e) {
     for (var r, a, o, s = e.length, i = ':)', d = 0; s > d; d++)
       I.setAttribute('type', (r = e[d])),
@@ -322,8 +315,8 @@
     Modernizr.addTest('postmessage', 'postMessage' in e),
     Modernizr.addTest('svg', !!t.createElementNS && !!t.createElementNS('http://www.w3.org/2000/svg', 'svg').createSVGRect),
     Modernizr.addTest('video', function() {
-      var e = i('video');
-      var t = !1;
+      var e = i('video'),
+        t = !1;
       try {
         (t = !!e.canPlayType) &&
           ((t = new Boolean(t)),
@@ -336,8 +329,8 @@
       return t;
     }),
     Modernizr.addTest('webgl', function() {
-      var t = i('canvas');
-      var n = 'probablySupportsContext' in t ? 'probablySupportsContext' : 'supportsContext';
+      var t = i('canvas'),
+        n = 'probablySupportsContext' in t ? 'probablySupportsContext' : 'supportsContext';
       return n in t ? t[n]('webgl') || t[n]('experimental-webgl') : 'WebGLRenderingContext' in e;
     }),
     Modernizr.addTest('websockets', 'WebSocket' in e && e.WebSocket.CLOSING === 2),
@@ -348,46 +341,46 @@
     Modernizr.addTest('boxshadow', y('boxShadow', '1px 1px', !0)),
     (function() {
       Modernizr.addTest('csscolumns', function() {
-        var e = !1;
-        var t = y('columnCount');
+        var e = !1,
+          t = y('columnCount');
         try {
           (e = !!t) && (e = new Boolean(e));
         } catch (n) {}
         return e;
       });
       for (var e, t, n = ['Width', 'Span', 'Fill', 'Gap', 'Rule', 'RuleColor', 'RuleStyle', 'RuleWidth', 'BreakBefore', 'BreakAfter', 'BreakInside'], r = 0; r < n.length; r++)
-        (e = n[r].toLowerCase()), (t = y(`column${n[r]}`)), (e === 'breakbefore' || e === 'breakafter' || e == 'breakinside') && (t = t || y(n[r])), Modernizr.addTest(`csscolumns.${e}`, t);
+        (e = n[r].toLowerCase()), (t = y('column' + n[r])), (e === 'breakbefore' || e === 'breakafter' || e == 'breakinside') && (t = t || y(n[r])), Modernizr.addTest('csscolumns.' + e, t);
     })(),
     Modernizr.addTest('flexbox', y('flexBasis', '1px', !0));
   var M = (function() {
-    var e = navigator.userAgent;
-    var t = e.match(/applewebkit\/([0-9]+)/gi) && parseFloat(RegExp.$1);
-    var n = e.match(/w(eb)?osbrowser/gi);
-    var r = e.match(/windows phone/gi) && e.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9;
-    var a = t < 533 && e.match(/android/gi);
+    var e = navigator.userAgent,
+      t = e.match(/applewebkit\/([0-9]+)/gi) && parseFloat(RegExp.$1),
+      n = e.match(/w(eb)?osbrowser/gi),
+      r = e.match(/windows phone/gi) && e.match(/iemobile\/([0-9])+/gi) && parseFloat(RegExp.$1) >= 9,
+      a = t < 533 && e.match(/android/gi);
     return n || a || r;
   })();
   M
     ? Modernizr.addTest('fontface', !1)
     : N('@font-face {font-family:"font";src:url("https://")}', function(e, n) {
-        var r = t.getElementById('smodernizr');
-        var a = r.sheet || r.styleSheet;
-        var o = a ? (a.cssRules && a.cssRules[0] ? a.cssRules[0].cssText : a.cssText || '') : '';
-        var s = /src/i.test(o) && o.indexOf(n.split(' ')[0]) === 0;
+        var r = t.getElementById('smodernizr'),
+          a = r.sheet || r.styleSheet,
+          o = a ? (a.cssRules && a.cssRules[0] ? a.cssRules[0].cssText : a.cssText || '') : '',
+          s = /src/i.test(o) && o.indexOf(n.split(' ')[0]) === 0;
         Modernizr.addTest('fontface', s);
       }),
     N('#modernizr{font:0/0 a}#modernizr:after{content:":)";visibility:hidden;font:7px/1 a}', function(e) {
       Modernizr.addTest('generatedcontent', e.offsetHeight >= 7);
     }),
     Modernizr.addTest('cssgradients', function() {
-      var e = 'background-image:';
-      var t = 'gradient(linear,left top,right bottom,from(#9f9),to(white));';
-      var n = 'linear-gradient(left top,#9f9, white);';
-      var r = e + _.join(n + e).slice(0, -e.length);
-      Modernizr._config.usePrefixes && (r += `${e}-webkit-${t}`);
-      var a = i('a');
-      var o = a.style;
-      return (o.cssText = r), `${o.backgroundImage}`.indexOf('gradient') > -1;
+      var e = 'background-image:',
+        t = 'gradient(linear,left top,right bottom,from(#9f9),to(white));',
+        n = 'linear-gradient(left top,#9f9, white);',
+        r = e + _.join(n + e).slice(0, -e.length);
+      Modernizr._config.usePrefixes && (r += e + '-webkit-' + t);
+      var a = i('a'),
+        o = a.style;
+      return (o.cssText = r), ('' + o.backgroundImage).indexOf('gradient') > -1;
     }),
     Modernizr.addTest('hsla', function() {
       var e = i('a').style;
@@ -404,18 +397,18 @@
     Modernizr.addTest('cssreflections', y('boxReflect', 'above', !0)),
     Modernizr.addTest('rgba', function() {
       var e = i('a').style;
-      return (e.cssText = 'background-color:rgba(150,255,150,.5)'), `${e.backgroundColor}`.indexOf('rgba') > -1;
+      return (e.cssText = 'background-color:rgba(150,255,150,.5)'), ('' + e.backgroundColor).indexOf('rgba') > -1;
     }),
     Modernizr.addTest('textshadow', z('textShadow', '1px 1px')),
     Modernizr.addTest('csstransforms', function() {
       return navigator.userAgent.indexOf('Android 2.') === -1 && y('transform', 'scale(1)', !0);
     });
-  var G = 'CSS' in e && 'supports' in e.CSS;
-  var U = 'supportsCSS' in e;
+  var G = 'CSS' in e && 'supports' in e.CSS,
+    U = 'supportsCSS' in e;
   Modernizr.addTest('supports', G || U),
     Modernizr.addTest('csstransforms3d', function() {
-      var e = !!y('perspective', '1px', !0);
-      var t = Modernizr._config.usePrefixes;
+      var e = !!y('perspective', '1px', !0),
+        t = Modernizr._config.usePrefixes;
       if (e && (!t || 'webkitPerspective' in w.style)) {
         var n;
         Modernizr.supports ? (n = '@supports (perspective: 1px)') : ((n = '@media (transform-3d)'), t && (n += ',(-webkit-transform-3d)')),
