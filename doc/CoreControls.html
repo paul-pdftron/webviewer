@@ -1,0 +1,8496 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<title>PDFTron WebViewer Namespace: CoreControls</title>
+
+	<!--[if lt IE 9]>
+	<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<link type="text/css" rel="stylesheet" href="styles/sunlight.default.css">
+
+	<link type="text/css" rel="stylesheet" href="styles/site.pdftron.css">
+	
+</head>
+
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top ">
+<div class="container">
+	<div class="navbar-header">
+		<a class="navbar-brand" href="index.html">PDFTron WebViewer</a>
+		<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+			<span class="icon-bar"></span>
+        </button>
+	</div>
+	<div class="navbar-collapse collapse" id="topNavigation">
+		<ul class="nav navbar-nav">
+			
+			<li class="dropdown">
+				<a href="namespaces.list.html" class="dropdown-toggle" data-toggle="dropdown">Namespaces<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Actions.html">Actions</a></li><li><a href="Annotations.html">Annotations</a></li><li><a href="Annotations.SelectionAlgorithm.html">Annotations.SelectionAlgorithm</a></li><li><a href="CoreControls.html">CoreControls</a></li><li><a href="CoreControls.Search.html">CoreControls.Search</a></li><li><a href="PartRetrievers.html">PartRetrievers</a></li><li><a href="PDFNet.html">PDFNet</a></li><li><a href="Tools.html">Tools</a></li><li><a href="utils.html">utils</a></li><li><a href="WebViewerInstance.Hotkeys.html">WebViewerInstance.Hotkeys</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="modules.list.html" class="dropdown-toggle" data-toggle="dropdown">Modules<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="module-@pdftron_webviewer-video.html">@pdftron/webviewer-video</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="classes.list.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Actions.Action.html">Actions.Action</a></li><li><a href="Actions.Dest.html">Actions.Dest</a></li><li><a href="Actions.GoTo.html">Actions.GoTo</a></li><li><a href="Actions.GoToR.html">Actions.GoToR</a></li><li><a href="Actions.Hide.html">Actions.Hide</a></li><li><a href="Actions.JavaScript.html">Actions.JavaScript</a></li><li><a href="Actions.Named.html">Actions.Named</a></li><li><a href="Actions.ResetForm.html">Actions.ResetForm</a></li><li><a href="Actions.URI.html">Actions.URI</a></li><li><a href="Annotations.Annotation.html">Annotations.Annotation</a></li><li><a href="Annotations.Border.html">Annotations.Border</a></li><li><a href="Annotations.BoxControlHandle.html">Annotations.BoxControlHandle</a></li><li><a href="Annotations.BoxSelectionModel.html">Annotations.BoxSelectionModel</a></li><li><a href="Annotations.ButtonWidgetAnnotation.html">Annotations.ButtonWidgetAnnotation</a></li><li><a href="Annotations.CalloutControlHandle.html">Annotations.CalloutControlHandle</a></li><li><a href="Annotations.CalloutSelectionModel.html">Annotations.CalloutSelectionModel</a></li><li><a href="Annotations.CaretAnnotation.html">Annotations.CaretAnnotation</a></li><li><a href="Annotations.CheckButtonWidgetAnnotation.html">Annotations.CheckButtonWidgetAnnotation</a></li><li><a href="Annotations.ChoiceWidgetAnnotation.html">Annotations.ChoiceWidgetAnnotation</a></li><li><a href="Annotations.Color.html">Annotations.Color</a></li><li><a href="Annotations.ControlHandle.html">Annotations.ControlHandle</a></li><li><a href="Annotations.CustomAnnotation.html">Annotations.CustomAnnotation</a></li><li><a href="Annotations.DatePickerWidgetAnnotation.html">Annotations.DatePickerWidgetAnnotation</a></li><li><a href="Annotations.EllipseAnnotation.html">Annotations.EllipseAnnotation</a></li><li><a href="Annotations.FileAttachmentAnnotation.html">Annotations.FileAttachmentAnnotation</a></li><li><a href="Annotations.Font.html">Annotations.Font</a></li><li><a href="Annotations.Forms.html">Annotations.Forms</a></li><li><a href="Annotations.Forms.EmbeddedJS.html">Annotations.Forms.EmbeddedJS</a></li><li><a href="Annotations.Forms.Field.html">Annotations.Forms.Field</a></li><li><a href="Annotations.Forms.FieldManager.html">Annotations.Forms.FieldManager</a></li><li><a href="Annotations.FreeHandAnnotation.html">Annotations.FreeHandAnnotation</a></li><li><a href="Annotations.FreeTextAnnotation.html">Annotations.FreeTextAnnotation</a></li><li><a href="Annotations.FreeTextAnnotation.Editor.html">Annotations.FreeTextAnnotation.Editor</a></li><li><a href="Annotations.FreeTextSelectionModel.html">Annotations.FreeTextSelectionModel</a></li><li><a href="Annotations.HTMLAnnotation.html">Annotations.HTMLAnnotation</a></li><li><a href="Annotations.IPathAnnotation.html">Annotations.IPathAnnotation</a></li><li><a href="Annotations.LineAnnotation.html">Annotations.LineAnnotation</a></li><li><a href="Annotations.LineControlHandle.html">Annotations.LineControlHandle</a></li><li><a href="Annotations.LineSelectionModel.html">Annotations.LineSelectionModel</a></li><li><a href="Annotations.Link.html">Annotations.Link</a></li><li><a href="Annotations.ListWidgetAnnotation.html">Annotations.ListWidgetAnnotation</a></li><li><a href="Annotations.MarkupAnnotation.html">Annotations.MarkupAnnotation</a></li><li><a href="Annotations.PathControlHandle.html">Annotations.PathControlHandle</a></li><li><a href="Annotations.PathSelectionModel.html">Annotations.PathSelectionModel</a></li><li><a href="Annotations.Point.html">Annotations.Point</a></li><li><a href="Annotations.PolygonAnnotation.html">Annotations.PolygonAnnotation</a></li><li><a href="Annotations.PolygonControlHandle.html">Annotations.PolygonControlHandle</a></li><li><a href="Annotations.PolygonSelectionModel.html">Annotations.PolygonSelectionModel</a></li><li><a href="Annotations.PolylineAnnotation.html">Annotations.PolylineAnnotation</a></li><li><a href="Annotations.PopupAnnotation.html">Annotations.PopupAnnotation</a></li><li><a href="Annotations.Quad.html">Annotations.Quad</a></li><li><a href="Annotations.RadioButtonWidgetAnnotation.html">Annotations.RadioButtonWidgetAnnotation</a></li><li><a href="Annotations.Rect.html">Annotations.Rect</a></li><li><a href="Annotations.RectangleAnnotation.html">Annotations.RectangleAnnotation</a></li><li><a href="Annotations.RedactionAnnotation.html">Annotations.RedactionAnnotation</a></li><li><a href="Annotations.RedactionSelectionModel.html">Annotations.RedactionSelectionModel</a></li><li><a href="Annotations.RotationControlHandle.html">Annotations.RotationControlHandle</a></li><li><a href="Annotations.SelectionModel.html">Annotations.SelectionModel</a></li><li><a href="Annotations.SignatureWidgetAnnotation.html">Annotations.SignatureWidgetAnnotation</a></li><li><a href="Annotations.StampAnnotation.html">Annotations.StampAnnotation</a></li><li><a href="Annotations.StickyAnnotation.html">Annotations.StickyAnnotation</a></li><li><a href="Annotations.TextHighlightAnnotation.html">Annotations.TextHighlightAnnotation</a></li><li><a href="Annotations.TextMarkupAnnotation.html">Annotations.TextMarkupAnnotation</a></li><li><a href="Annotations.TextRedactAnnotation.html">Annotations.TextRedactAnnotation</a></li><li><a href="Annotations.TextSelectionModel.html">Annotations.TextSelectionModel</a></li><li><a href="Annotations.TextSquigglyAnnotation.html">Annotations.TextSquigglyAnnotation</a></li><li><a href="Annotations.TextStrikeoutAnnotation.html">Annotations.TextStrikeoutAnnotation</a></li><li><a href="Annotations.TextUnderlineAnnotation.html">Annotations.TextUnderlineAnnotation</a></li><li><a href="Annotations.TextWidgetAnnotation.html">Annotations.TextWidgetAnnotation</a></li><li><a href="Annotations.WidgetAnnotation.html">Annotations.WidgetAnnotation</a></li><li><a href="Annotations.WidgetFlags.html">Annotations.WidgetFlags</a></li><li><a href="CoreControls.AnnotationHistoryManager.html">CoreControls.AnnotationHistoryManager</a></li><li><a href="CoreControls.AnnotationManager.html">CoreControls.AnnotationManager</a></li><li><a href="CoreControls.BlackBoxAnnotationManager.html">CoreControls.BlackBoxAnnotationManager</a></li><li><a href="CoreControls.Bookmark.html">CoreControls.Bookmark</a></li><li><a href="CoreControls.DisplayMode.html">CoreControls.DisplayMode</a></li><li><a href="CoreControls.DisplayModeManager.html">CoreControls.DisplayModeManager</a></li><li><a href="CoreControls.Document.html">CoreControls.Document</a></li><li><a href="CoreControls.DocumentViewer.html">CoreControls.DocumentViewer</a></li><li><a href="CoreControls.EditBoxManager.html">CoreControls.EditBoxManager</a></li><li><a href="CoreControls.WidgetEditingManager.html">CoreControls.WidgetEditingManager</a></li><li><a href="EventHandler.html">EventHandler</a></li><li><a href="Header.html">Header</a></li><li><a href="PartRetrievers.AndroidContentPartRetriever.html">PartRetrievers.AndroidContentPartRetriever</a></li><li><a href="PartRetrievers.ArrayBufferPdfPartRetriever.html">PartRetrievers.ArrayBufferPdfPartRetriever</a></li><li><a href="PartRetrievers.AzurePartRetriever.html">PartRetrievers.AzurePartRetriever</a></li><li><a href="PartRetrievers.BlackBoxPartRetriever.html">PartRetrievers.BlackBoxPartRetriever</a></li><li><a href="PartRetrievers.ExternalPdfPartRetriever.html">PartRetrievers.ExternalPdfPartRetriever</a></li><li><a href="PartRetrievers.HttpPartRetriever.html">PartRetrievers.HttpPartRetriever</a></li><li><a href="PartRetrievers.IOSPartRetriever.html">PartRetrievers.IOSPartRetriever</a></li><li><a href="PartRetrievers.LocalPartRetriever.html">PartRetrievers.LocalPartRetriever</a></li><li><a href="PartRetrievers.LocalPdfPartRetriever.html">PartRetrievers.LocalPdfPartRetriever</a></li><li><a href="PartRetrievers.PartRetriever.html">PartRetrievers.PartRetriever</a></li><li><a href="PartRetrievers.StreamingPartRetriever.html">PartRetrievers.StreamingPartRetriever</a></li><li><a href="PartRetrievers.WinRTPartRetriever.html">PartRetrievers.WinRTPartRetriever</a></li><li><a href="PDFNet.Action.html">PDFNet.Action</a></li><li><a href="PDFNet.ActionParameter.html">PDFNet.ActionParameter</a></li><li><a href="PDFNet.Annot.html">PDFNet.Annot</a></li><li><a href="PDFNet.AnnotBorderStyle.html">PDFNet.AnnotBorderStyle</a></li><li><a href="PDFNet.AppearanceReferenceList.html">PDFNet.AppearanceReferenceList</a></li><li><a href="PDFNet.AttrObj.html">PDFNet.AttrObj</a></li><li><a href="PDFNet.Bookmark.html">PDFNet.Bookmark</a></li><li><a href="PDFNet.CaretAnnot.html">PDFNet.CaretAnnot</a></li><li><a href="PDFNet.CheckBoxWidget.html">PDFNet.CheckBoxWidget</a></li><li><a href="PDFNet.ChunkRenderer.html">PDFNet.ChunkRenderer</a></li><li><a href="PDFNet.CircleAnnot.html">PDFNet.CircleAnnot</a></li><li><a href="PDFNet.ClassMap.html">PDFNet.ClassMap</a></li><li><a href="PDFNet.ColorPt.html">PDFNet.ColorPt</a></li><li><a href="PDFNet.ColorSpace.html">PDFNet.ColorSpace</a></li><li><a href="PDFNet.ComboBoxWidget.html">PDFNet.ComboBoxWidget</a></li><li><a href="PDFNet.ContentItem.html">PDFNet.ContentItem</a></li><li><a href="PDFNet.ContentReplacer.html">PDFNet.ContentReplacer</a></li><li><a href="PDFNet.ConversionMonitor.html">PDFNet.ConversionMonitor</a></li><li><a href="PDFNet.Convert.html">PDFNet.Convert</a></li><li><a href="PDFNet.Convert.OfficeToPDFOptions.html">PDFNet.Convert.OfficeToPDFOptions</a></li><li><a href="PDFNet.Convert.XODOutputOptions.html">PDFNet.Convert.XODOutputOptions</a></li><li><a href="PDFNet.Convert.XPSOutputCommonOptions.html">PDFNet.Convert.XPSOutputCommonOptions</a></li><li><a href="PDFNet.Convert.XPSOutputOptions.html">PDFNet.Convert.XPSOutputOptions</a></li><li><a href="PDFNet.Date.html">PDFNet.Date</a></li><li><a href="PDFNet.Destination.html">PDFNet.Destination</a></li><li><a href="PDFNet.DictIterator.html">PDFNet.DictIterator</a></li><li><a href="PDFNet.DiffOptions.html">PDFNet.DiffOptions</a></li><li><a href="PDFNet.DigestAlgorithm.html">PDFNet.DigestAlgorithm</a></li><li><a href="PDFNet.DigitalSignatureField.html">PDFNet.DigitalSignatureField</a></li><li><a href="PDFNet.DisallowedChange.html">PDFNet.DisallowedChange</a></li><li><a href="PDFNet.DocSnapshot.html">PDFNet.DocSnapshot</a></li><li><a href="PDFNet.DocumentConversion.html">PDFNet.DocumentConversion</a></li><li><a href="PDFNet.Element.html">PDFNet.Element</a></li><li><a href="PDFNet.ElementBuilder.html">PDFNet.ElementBuilder</a></li><li><a href="PDFNet.ElementReader.html">PDFNet.ElementReader</a></li><li><a href="PDFNet.ElementWriter.html">PDFNet.ElementWriter</a></li><li><a href="PDFNet.FDFDoc.html">PDFNet.FDFDoc</a></li><li><a href="PDFNet.FDFField.html">PDFNet.FDFField</a></li><li><a href="PDFNet.Field.html">PDFNet.Field</a></li><li><a href="PDFNet.FileAttachmentAnnot.html">PDFNet.FileAttachmentAnnot</a></li><li><a href="PDFNet.FileSpec.html">PDFNet.FileSpec</a></li><li><a href="PDFNet.Filter.html">PDFNet.Filter</a></li><li><a href="PDFNet.FilterReader.html">PDFNet.FilterReader</a></li><li><a href="PDFNet.FilterWriter.html">PDFNet.FilterWriter</a></li><li><a href="PDFNet.Flattener.html">PDFNet.Flattener</a></li><li><a href="PDFNet.Font.html">PDFNet.Font</a></li><li><a href="PDFNet.FreeTextAnnot.html">PDFNet.FreeTextAnnot</a></li><li><a href="PDFNet.Function.html">PDFNet.Function</a></li><li><a href="PDFNet.GeometryCollection.html">PDFNet.GeometryCollection</a></li><li><a href="PDFNet.GState.html">PDFNet.GState</a></li><li><a href="PDFNet.HighlightAnnot.html">PDFNet.HighlightAnnot</a></li><li><a href="PDFNet.Highlights.html">PDFNet.Highlights</a></li><li><a href="PDFNet.Image.html">PDFNet.Image</a></li><li><a href="PDFNet.InkAnnot.html">PDFNet.InkAnnot</a></li><li><a href="PDFNet.Iterator.html">PDFNet.Iterator</a></li><li><a href="PDFNet.KeyStrokeActionResult.html">PDFNet.KeyStrokeActionResult</a></li><li><a href="PDFNet.KeyStrokeEventData.html">PDFNet.KeyStrokeEventData</a></li><li><a href="PDFNet.LineAnnot.html">PDFNet.LineAnnot</a></li><li><a href="PDFNet.LinkAnnot.html">PDFNet.LinkAnnot</a></li><li><a href="PDFNet.ListBoxWidget.html">PDFNet.ListBoxWidget</a></li><li><a href="PDFNet.MarkupAnnot.html">PDFNet.MarkupAnnot</a></li><li><a href="PDFNet.Matrix2D.html">PDFNet.Matrix2D</a></li><li><a href="PDFNet.MovieAnnot.html">PDFNet.MovieAnnot</a></li><li><a href="PDFNet.NameTree.html">PDFNet.NameTree</a></li><li><a href="PDFNet.NumberTree.html">PDFNet.NumberTree</a></li><li><a href="PDFNet.Obj.html">PDFNet.Obj</a></li><li><a href="PDFNet.ObjSet.html">PDFNet.ObjSet</a></li><li><a href="PDFNet.OCG.html">PDFNet.OCG</a></li><li><a href="PDFNet.OCGConfig.html">PDFNet.OCGConfig</a></li><li><a href="PDFNet.OCGContext.html">PDFNet.OCGContext</a></li><li><a href="PDFNet.OCMD.html">PDFNet.OCMD</a></li><li><a href="PDFNet.Optimizer.html">PDFNet.Optimizer</a></li><li><a href="PDFNet.Optimizer.ImageSettings.html">PDFNet.Optimizer.ImageSettings</a></li><li><a href="PDFNet.Optimizer.MonoImageSettings.html">PDFNet.Optimizer.MonoImageSettings</a></li><li><a href="PDFNet.Optimizer.OptimizerSettings.html">PDFNet.Optimizer.OptimizerSettings</a></li><li><a href="PDFNet.Optimizer.TextSettings.html">PDFNet.Optimizer.TextSettings</a></li><li><a href="PDFNet.OwnedBitmap.html">PDFNet.OwnedBitmap</a></li><li><a href="PDFNet.Page.html">PDFNet.Page</a></li><li><a href="PDFNet.PageLabel.html">PDFNet.PageLabel</a></li><li><a href="PDFNet.PageSet.html">PDFNet.PageSet</a></li><li><a href="PDFNet.PatternColor.html">PDFNet.PatternColor</a></li><li><a href="PDFNet.PDFACompliance.html">PDFNet.PDFACompliance</a></li><li><a href="PDFNet.PDFDC.html">PDFNet.PDFDC</a></li><li><a href="PDFNet.PDFDCEX.html">PDFNet.PDFDCEX</a></li><li><a href="PDFNet.PDFDoc.html">PDFNet.PDFDoc</a></li><li><a href="PDFNet.PDFDocInfo.html">PDFNet.PDFDocInfo</a></li><li><a href="PDFNet.PDFDocViewPrefs.html">PDFNet.PDFDocViewPrefs</a></li><li><a href="PDFNet.PDFDraw.html">PDFNet.PDFDraw</a></li><li><a href="PDFNet.PDFRasterizer.html">PDFNet.PDFRasterizer</a></li><li><a href="PDFNet.PDFView.html">PDFNet.PDFView</a></li><li><a href="PDFNet.PDFViewCtrl.html">PDFNet.PDFViewCtrl</a></li><li><a href="PDFNet.Point.html">PDFNet.Point</a></li><li><a href="PDFNet.PolygonAnnot.html">PDFNet.PolygonAnnot</a></li><li><a href="PDFNet.PolyLineAnnot.html">PDFNet.PolyLineAnnot</a></li><li><a href="PDFNet.PopupAnnot.html">PDFNet.PopupAnnot</a></li><li><a href="PDFNet.PrinterMode.html">PDFNet.PrinterMode</a></li><li><a href="PDFNet.ProgressMonitor.html">PDFNet.ProgressMonitor</a></li><li><a href="PDFNet.PushButtonWidget.html">PDFNet.PushButtonWidget</a></li><li><a href="PDFNet.QuadPoint.html">PDFNet.QuadPoint</a></li><li><a href="PDFNet.RadioButtonGroup.html">PDFNet.RadioButtonGroup</a></li><li><a href="PDFNet.RadioButtonWidget.html">PDFNet.RadioButtonWidget</a></li><li><a href="PDFNet.Rect.html">PDFNet.Rect</a></li><li><a href="PDFNet.Redaction.html">PDFNet.Redaction</a></li><li><a href="PDFNet.RedactionAnnot.html">PDFNet.RedactionAnnot</a></li><li><a href="PDFNet.Redactor.html">PDFNet.Redactor</a></li><li><a href="PDFNet.ResultSnapshot.html">PDFNet.ResultSnapshot</a></li><li><a href="PDFNet.RoleMap.html">PDFNet.RoleMap</a></li><li><a href="PDFNet.RubberStampAnnot.html">PDFNet.RubberStampAnnot</a></li><li><a href="PDFNet.ScreenAnnot.html">PDFNet.ScreenAnnot</a></li><li><a href="PDFNet.SDFDoc.html">PDFNet.SDFDoc</a></li><li><a href="PDFNet.SecurityHandler.html">PDFNet.SecurityHandler</a></li><li><a href="PDFNet.SElement.html">PDFNet.SElement</a></li><li><a href="PDFNet.Shading.html">PDFNet.Shading</a></li><li><a href="PDFNet.SignatureHandler.html">PDFNet.SignatureHandler</a></li><li><a href="PDFNet.SignatureWidget.html">PDFNet.SignatureWidget</a></li><li><a href="PDFNet.SoundAnnot.html">PDFNet.SoundAnnot</a></li><li><a href="PDFNet.SquareAnnot.html">PDFNet.SquareAnnot</a></li><li><a href="PDFNet.SquigglyAnnot.html">PDFNet.SquigglyAnnot</a></li><li><a href="PDFNet.Stamper.html">PDFNet.Stamper</a></li><li><a href="PDFNet.STree.html">PDFNet.STree</a></li><li><a href="PDFNet.StrikeOutAnnot.html">PDFNet.StrikeOutAnnot</a></li><li><a href="PDFNet.TextAnnot.html">PDFNet.TextAnnot</a></li><li><a href="PDFNet.TextExtractor.html">PDFNet.TextExtractor</a></li><li><a href="PDFNet.TextExtractorLine.html">PDFNet.TextExtractorLine</a></li><li><a href="PDFNet.TextExtractorStyle.html">PDFNet.TextExtractorStyle</a></li><li><a href="PDFNet.TextExtractorWord.html">PDFNet.TextExtractorWord</a></li><li><a href="PDFNet.TextMarkupAnnot.html">PDFNet.TextMarkupAnnot</a></li><li><a href="PDFNet.TextSearch.html">PDFNet.TextSearch</a></li><li><a href="PDFNet.TextWidget.html">PDFNet.TextWidget</a></li><li><a href="PDFNet.TrustVerificationResult.html">PDFNet.TrustVerificationResult</a></li><li><a href="PDFNet.UnderlineAnnot.html">PDFNet.UnderlineAnnot</a></li><li><a href="PDFNet.UndoManager.html">PDFNet.UndoManager</a></li><li><a href="PDFNet.VerificationOptions.html">PDFNet.VerificationOptions</a></li><li><a href="PDFNet.VerificationResult.html">PDFNet.VerificationResult</a></li><li><a href="PDFNet.ViewChangeCollection.html">PDFNet.ViewChangeCollection</a></li><li><a href="PDFNet.WatermarkAnnot.html">PDFNet.WatermarkAnnot</a></li><li><a href="PDFNet.WidgetAnnot.html">PDFNet.WidgetAnnot</a></li><li><a href="SubmitForm.html">SubmitForm</a></li><li><a href="Tools.AnnotationEditTool.html">Tools.AnnotationEditTool</a></li><li><a href="Tools.AnnotationSelectTool.html">Tools.AnnotationSelectTool</a></li><li><a href="Tools.AreaMeasurementCreateTool.html">Tools.AreaMeasurementCreateTool</a></li><li><a href="Tools.ArrowCreateTool.html">Tools.ArrowCreateTool</a></li><li><a href="Tools.CalloutCreateTool.html">Tools.CalloutCreateTool</a></li><li><a href="Tools.CountMeasurementCreateTool.html">Tools.CountMeasurementCreateTool</a></li><li><a href="Tools.CropCreateTool.html">Tools.CropCreateTool</a></li><li><a href="Tools.DistanceMeasurementCreateTool.html">Tools.DistanceMeasurementCreateTool</a></li><li><a href="Tools.EllipseCreateTool.html">Tools.EllipseCreateTool</a></li><li><a href="Tools.EllipseMeasurementCreateTool.html">Tools.EllipseMeasurementCreateTool</a></li><li><a href="Tools.EraserTool.html">Tools.EraserTool</a></li><li><a href="Tools.FileAttachmentCreateTool.html">Tools.FileAttachmentCreateTool</a></li><li><a href="Tools.FreeHandCreateTool.html">Tools.FreeHandCreateTool</a></li><li><a href="Tools.FreeTextCreateTool.html">Tools.FreeTextCreateTool</a></li><li><a href="Tools.GenericAnnotationCreateTool.html">Tools.GenericAnnotationCreateTool</a></li><li><a href="Tools.LineCreateTool.html">Tools.LineCreateTool</a></li><li><a href="Tools.MarqueeZoomTool.html">Tools.MarqueeZoomTool</a></li><li><a href="Tools.PageCoordinate.html">Tools.PageCoordinate</a></li><li><a href="Tools.PanTool.html">Tools.PanTool</a></li><li><a href="Tools.PerimeterMeasurementCreateTool.html">Tools.PerimeterMeasurementCreateTool</a></li><li><a href="Tools.PolygonCloudCreateTool.html">Tools.PolygonCloudCreateTool</a></li><li><a href="Tools.PolygonCreateTool.html">Tools.PolygonCreateTool</a></li><li><a href="Tools.PolylineCreateTool.html">Tools.PolylineCreateTool</a></li><li><a href="Tools.RectangleCreateTool.html">Tools.RectangleCreateTool</a></li><li><a href="Tools.RectangularAreaMeasurementTool.html">Tools.RectangularAreaMeasurementTool</a></li><li><a href="Tools.RedactionCreateTool.html">Tools.RedactionCreateTool</a></li><li><a href="Tools.RubberStampCreateTool.html">Tools.RubberStampCreateTool</a></li><li><a href="Tools.SignatureCreateTool.html">Tools.SignatureCreateTool</a></li><li><a href="Tools.StampCreateTool.html">Tools.StampCreateTool</a></li><li><a href="Tools.StickyCreateTool.html">Tools.StickyCreateTool</a></li><li><a href="Tools.TextAnnotationCreateTool.html">Tools.TextAnnotationCreateTool</a></li><li><a href="Tools.TextHighlightCreateTool.html">Tools.TextHighlightCreateTool</a></li><li><a href="Tools.TextSelectTool.html">Tools.TextSelectTool</a></li><li><a href="Tools.TextSquigglyCreateTool.html">Tools.TextSquigglyCreateTool</a></li><li><a href="Tools.TextStrikeoutCreateTool.html">Tools.TextStrikeoutCreateTool</a></li><li><a href="Tools.TextTool.html">Tools.TextTool</a></li><li><a href="Tools.TextUnderlineCreateTool.html">Tools.TextUnderlineCreateTool</a></li><li><a href="Tools.Tool.html">Tools.Tool</a></li><li><a href="Video.html">Video</a></li><li><a href="WebViewerInstance.html">WebViewerInstance</a></li><li><a href="WebViewerInstance.MentionsManager.html">WebViewerInstance.MentionsManager</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="events.list.html" class="dropdown-toggle" data-toggle="dropdown">Events<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="Annotations.Forms.Field.html#event:calculate">Annotations.Forms.Field#event:calculate</a></li><li><a href="Annotations.Forms.Field.html#event:change">Annotations.Forms.Field#event:change</a></li><li><a href="Annotations.Forms.Field.html#event:commit">Annotations.Forms.Field#event:commit</a></li><li><a href="CoreControls.AnnotationHistoryManager.html#event:historyChanged">CoreControls.AnnotationHistoryManager#event:historyChanged</a></li><li><a href="CoreControls.AnnotationManager.html#event:addReply">CoreControls.AnnotationManager#event:addReply</a></li><li><a href="CoreControls.AnnotationManager.html#event:annotationChanged">CoreControls.AnnotationManager#event:annotationChanged</a></li><li><a href="CoreControls.AnnotationManager.html#event:annotationDoubleClicked">CoreControls.AnnotationManager#event:annotationDoubleClicked</a></li><li><a href="CoreControls.AnnotationManager.html#event:annotationHidden">CoreControls.AnnotationManager#event:annotationHidden</a></li><li><a href="CoreControls.AnnotationManager.html#event:annotationsDrawn">CoreControls.AnnotationManager#event:annotationsDrawn</a></li><li><a href="CoreControls.AnnotationManager.html#event:annotationSelected">CoreControls.AnnotationManager#event:annotationSelected</a></li><li><a href="CoreControls.AnnotationManager.html#event:deleteReply">CoreControls.AnnotationManager#event:deleteReply</a></li><li><a href="CoreControls.AnnotationManager.html#event:fieldChanged">CoreControls.AnnotationManager#event:fieldChanged</a></li><li><a href="CoreControls.AnnotationManager.html#event:fileAttachmentDataAvailable">CoreControls.AnnotationManager#event:fileAttachmentDataAvailable</a></li><li><a href="CoreControls.AnnotationManager.html#event:setNoteText">CoreControls.AnnotationManager#event:setNoteText</a></li><li><a href="CoreControls.AnnotationManager.html#event:updateAnnotationPermission">CoreControls.AnnotationManager#event:updateAnnotationPermission</a></li><li><a href="CoreControls.BlackBoxAnnotationManager.html#event:blackBoxAnnotationsDisabled">CoreControls.BlackBoxAnnotationManager#event:blackBoxAnnotationsDisabled</a></li><li><a href="CoreControls.BlackBoxAnnotationManager.html#event:blackBoxAnnotationsEnabled">CoreControls.BlackBoxAnnotationManager#event:blackBoxAnnotationsEnabled</a></li><li><a href="CoreControls.Document.html#event:colorSeparationAdded">CoreControls.Document#event:colorSeparationAdded</a></li><li><a href="CoreControls.Document.html#event:layersUpdated">CoreControls.Document#event:layersUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:activeSearchResultChanged">CoreControls.DocumentViewer#event:activeSearchResultChanged</a></li><li><a href="CoreControls.DocumentViewer.html#event:annotationsLoaded">CoreControls.DocumentViewer#event:annotationsLoaded</a></li><li><a href="CoreControls.DocumentViewer.html#event:beforeDocumentLoaded">CoreControls.DocumentViewer#event:beforeDocumentLoaded</a></li><li><a href="CoreControls.DocumentViewer.html#event:beginRendering">CoreControls.DocumentViewer#event:beginRendering</a></li><li><a href="CoreControls.DocumentViewer.html#event:changePage">CoreControls.DocumentViewer#event:changePage</a></li><li><a href="CoreControls.DocumentViewer.html#event:click">CoreControls.DocumentViewer#event:click</a></li><li><a href="CoreControls.DocumentViewer.html#event:dblClick">CoreControls.DocumentViewer#event:dblClick</a></li><li><a href="CoreControls.DocumentViewer.html#event:displayModeUpdated">CoreControls.DocumentViewer#event:displayModeUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:displayPageLocation">CoreControls.DocumentViewer#event:displayPageLocation</a></li><li><a href="CoreControls.DocumentViewer.html#event:documentLoaded">CoreControls.DocumentViewer#event:documentLoaded</a></li><li><a href="CoreControls.DocumentViewer.html#event:documentUnloaded">CoreControls.DocumentViewer#event:documentUnloaded</a></li><li><a href="CoreControls.DocumentViewer.html#event:finishedRendering">CoreControls.DocumentViewer#event:finishedRendering</a></li><li><a href="CoreControls.DocumentViewer.html#event:fitModeUpdated">CoreControls.DocumentViewer#event:fitModeUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:keyDown">CoreControls.DocumentViewer#event:keyDown</a></li><li><a href="CoreControls.DocumentViewer.html#event:keyUp">CoreControls.DocumentViewer#event:keyUp</a></li><li><a href="CoreControls.DocumentViewer.html#event:layoutChanged">CoreControls.DocumentViewer#event:layoutChanged</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseEnter">CoreControls.DocumentViewer#event:mouseEnter</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseLeave">CoreControls.DocumentViewer#event:mouseLeave</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseLeftDown">CoreControls.DocumentViewer#event:mouseLeftDown</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseLeftUp">CoreControls.DocumentViewer#event:mouseLeftUp</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseMove">CoreControls.DocumentViewer#event:mouseMove</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseRightDown">CoreControls.DocumentViewer#event:mouseRightDown</a></li><li><a href="CoreControls.DocumentViewer.html#event:mouseRightUp">CoreControls.DocumentViewer#event:mouseRightUp</a></li><li><a href="CoreControls.DocumentViewer.html#event:notify">CoreControls.DocumentViewer#event:notify</a></li><li><a href="CoreControls.DocumentViewer.html#event:pageComplete">CoreControls.DocumentViewer#event:pageComplete</a></li><li><a href="CoreControls.DocumentViewer.html#event:pageNumberUpdated">CoreControls.DocumentViewer#event:pageNumberUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:rotationUpdated">CoreControls.DocumentViewer#event:rotationUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:searchInProgress">CoreControls.DocumentViewer#event:searchInProgress</a></li><li><a href="CoreControls.DocumentViewer.html#event:searchResultsChanged">CoreControls.DocumentViewer#event:searchResultsChanged</a></li><li><a href="CoreControls.DocumentViewer.html#event:tap">CoreControls.DocumentViewer#event:tap</a></li><li><a href="CoreControls.DocumentViewer.html#event:textSelected">CoreControls.DocumentViewer#event:textSelected</a></li><li><a href="CoreControls.DocumentViewer.html#event:toolModeUpdated">CoreControls.DocumentViewer#event:toolModeUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:toolUpdated">CoreControls.DocumentViewer#event:toolUpdated</a></li><li><a href="CoreControls.DocumentViewer.html#event:zoomUpdated">CoreControls.DocumentViewer#event:zoomUpdated</a></li><li><a href="CoreControls.EditBoxManager.html#event:editorBlur">CoreControls.EditBoxManager#event:editorBlur</a></li><li><a href="CoreControls.EditBoxManager.html#event:editorFocus">CoreControls.EditBoxManager#event:editorFocus</a></li><li><a href="CoreControls.EditBoxManager.html#event:editorSelectionChanged">CoreControls.EditBoxManager#event:editorSelectionChanged</a></li><li><a href="CoreControls.EditBoxManager.html#event:editorTextChanged">CoreControls.EditBoxManager#event:editorTextChanged</a></li><li><a href="CoreControls.WidgetEditingManager.html#event:editingEnded">CoreControls.WidgetEditingManager#event:editingEnded</a></li><li><a href="CoreControls.WidgetEditingManager.html#event:editingStarted">CoreControls.WidgetEditingManager#event:editingStarted</a></li><li><a href="Tools.AreaMeasurementCreateTool.html#event:annotationAdded">Tools.AreaMeasurementCreateTool#event:annotationAdded</a></li><li><a href="Tools.AreaMeasurementCreateTool.html#event:annotationCreated">Tools.AreaMeasurementCreateTool#event:annotationCreated</a></li><li><a href="Tools.ArrowCreateTool.html#event:annotationAdded">Tools.ArrowCreateTool#event:annotationAdded</a></li><li><a href="Tools.ArrowCreateTool.html#event:annotationCreated">Tools.ArrowCreateTool#event:annotationCreated</a></li><li><a href="Tools.CalloutCreateTool.html#event:annotationAdded">Tools.CalloutCreateTool#event:annotationAdded</a></li><li><a href="Tools.CalloutCreateTool.html#event:annotationCreated">Tools.CalloutCreateTool#event:annotationCreated</a></li><li><a href="Tools.CountMeasurementCreateTool.html#event:annotationAdded">Tools.CountMeasurementCreateTool#event:annotationAdded</a></li><li><a href="Tools.CountMeasurementCreateTool.html#event:annotationCreated">Tools.CountMeasurementCreateTool#event:annotationCreated</a></li><li><a href="Tools.CropCreateTool.html#event:annotationAdded">Tools.CropCreateTool#event:annotationAdded</a></li><li><a href="Tools.CropCreateTool.html#event:annotationCreated">Tools.CropCreateTool#event:annotationCreated</a></li><li><a href="Tools.CropCreateTool.html#event:cropApplied">Tools.CropCreateTool#event:cropApplied</a></li><li><a href="Tools.DistanceMeasurementCreateTool.html#event:annotationAdded">Tools.DistanceMeasurementCreateTool#event:annotationAdded</a></li><li><a href="Tools.DistanceMeasurementCreateTool.html#event:annotationCreated">Tools.DistanceMeasurementCreateTool#event:annotationCreated</a></li><li><a href="Tools.EllipseCreateTool.html#event:annotationAdded">Tools.EllipseCreateTool#event:annotationAdded</a></li><li><a href="Tools.EllipseCreateTool.html#event:annotationCreated">Tools.EllipseCreateTool#event:annotationCreated</a></li><li><a href="Tools.EllipseMeasurementCreateTool.html#event:annotationAdded">Tools.EllipseMeasurementCreateTool#event:annotationAdded</a></li><li><a href="Tools.EllipseMeasurementCreateTool.html#event:annotationCreated">Tools.EllipseMeasurementCreateTool#event:annotationCreated</a></li><li><a href="Tools.EraserTool.html#event:annotationAdded">Tools.EraserTool#event:annotationAdded</a></li><li><a href="Tools.EraserTool.html#event:annotationCreated">Tools.EraserTool#event:annotationCreated</a></li><li><a href="Tools.EraserTool.html#event:erasingAnnotation">Tools.EraserTool#event:erasingAnnotation</a></li><li><a href="Tools.FreeHandCreateTool.html#event:annotationAdded">Tools.FreeHandCreateTool#event:annotationAdded</a></li><li><a href="Tools.FreeHandCreateTool.html#event:annotationCreated">Tools.FreeHandCreateTool#event:annotationCreated</a></li><li><a href="Tools.FreeTextCreateTool.html#event:annotationAdded">Tools.FreeTextCreateTool#event:annotationAdded</a></li><li><a href="Tools.FreeTextCreateTool.html#event:annotationCreated">Tools.FreeTextCreateTool#event:annotationCreated</a></li><li><a href="Tools.GenericAnnotationCreateTool.html#event:annotationAdded">Tools.GenericAnnotationCreateTool#event:annotationAdded</a></li><li><a href="Tools.GenericAnnotationCreateTool.html#event:annotationCreated">Tools.GenericAnnotationCreateTool#event:annotationCreated</a></li><li><a href="Tools.LineCreateTool.html#event:annotationAdded">Tools.LineCreateTool#event:annotationAdded</a></li><li><a href="Tools.LineCreateTool.html#event:annotationCreated">Tools.LineCreateTool#event:annotationCreated</a></li><li><a href="Tools.PerimeterMeasurementCreateTool.html#event:annotationAdded">Tools.PerimeterMeasurementCreateTool#event:annotationAdded</a></li><li><a href="Tools.PerimeterMeasurementCreateTool.html#event:annotationCreated">Tools.PerimeterMeasurementCreateTool#event:annotationCreated</a></li><li><a href="Tools.PolygonCloudCreateTool.html#event:annotationAdded">Tools.PolygonCloudCreateTool#event:annotationAdded</a></li><li><a href="Tools.PolygonCloudCreateTool.html#event:annotationCreated">Tools.PolygonCloudCreateTool#event:annotationCreated</a></li><li><a href="Tools.PolygonCreateTool.html#event:annotationAdded">Tools.PolygonCreateTool#event:annotationAdded</a></li><li><a href="Tools.PolygonCreateTool.html#event:annotationCreated">Tools.PolygonCreateTool#event:annotationCreated</a></li><li><a href="Tools.PolylineCreateTool.html#event:annotationAdded">Tools.PolylineCreateTool#event:annotationAdded</a></li><li><a href="Tools.PolylineCreateTool.html#event:annotationCreated">Tools.PolylineCreateTool#event:annotationCreated</a></li><li><a href="Tools.RectangleCreateTool.html#event:annotationAdded">Tools.RectangleCreateTool#event:annotationAdded</a></li><li><a href="Tools.RectangleCreateTool.html#event:annotationCreated">Tools.RectangleCreateTool#event:annotationCreated</a></li><li><a href="Tools.RectangularAreaMeasurementTool.html#event:annotationAdded">Tools.RectangularAreaMeasurementTool#event:annotationAdded</a></li><li><a href="Tools.RectangularAreaMeasurementTool.html#event:annotationCreated">Tools.RectangularAreaMeasurementTool#event:annotationCreated</a></li><li><a href="Tools.RedactionCreateTool.html#event:annotationAdded">Tools.RedactionCreateTool#event:annotationAdded</a></li><li><a href="Tools.RedactionCreateTool.html#event:annotationCreated">Tools.RedactionCreateTool#event:annotationCreated</a></li><li><a href="Tools.SignatureCreateTool.html#event:annotationAdded">Tools.SignatureCreateTool#event:annotationAdded</a></li><li><a href="Tools.SignatureCreateTool.html#event:locationSelected">Tools.SignatureCreateTool#event:locationSelected</a></li><li><a href="Tools.SignatureCreateTool.html#event:signatureDeleted">Tools.SignatureCreateTool#event:signatureDeleted</a></li><li><a href="Tools.SignatureCreateTool.html#event:signatureSaved">Tools.SignatureCreateTool#event:signatureSaved</a></li><li><a href="Tools.StickyCreateTool.html#event:annotationAdded">Tools.StickyCreateTool#event:annotationAdded</a></li><li><a href="Tools.StickyCreateTool.html#event:annotationCreated">Tools.StickyCreateTool#event:annotationCreated</a></li><li><a href="Tools.TextAnnotationCreateTool.html#event:annotationAdded">Tools.TextAnnotationCreateTool#event:annotationAdded</a></li><li><a href="Tools.TextAnnotationCreateTool.html#event:annotationCreated">Tools.TextAnnotationCreateTool#event:annotationCreated</a></li><li><a href="Tools.TextHighlightCreateTool.html#event:annotationAdded">Tools.TextHighlightCreateTool#event:annotationAdded</a></li><li><a href="Tools.TextHighlightCreateTool.html#event:annotationCreated">Tools.TextHighlightCreateTool#event:annotationCreated</a></li><li><a href="Tools.TextSelectTool.html#event:selectionComplete">Tools.TextSelectTool#event:selectionComplete</a></li><li><a href="Tools.TextSquigglyCreateTool.html#event:annotationAdded">Tools.TextSquigglyCreateTool#event:annotationAdded</a></li><li><a href="Tools.TextSquigglyCreateTool.html#event:annotationCreated">Tools.TextSquigglyCreateTool#event:annotationCreated</a></li><li><a href="Tools.TextStrikeoutCreateTool.html#event:annotationAdded">Tools.TextStrikeoutCreateTool#event:annotationAdded</a></li><li><a href="Tools.TextStrikeoutCreateTool.html#event:annotationCreated">Tools.TextStrikeoutCreateTool#event:annotationCreated</a></li><li><a href="Tools.TextUnderlineCreateTool.html#event:annotationAdded">Tools.TextUnderlineCreateTool#event:annotationAdded</a></li><li><a href="Tools.TextUnderlineCreateTool.html#event:annotationCreated">Tools.TextUnderlineCreateTool#event:annotationCreated</a></li><li><a href="WebViewerInstance.MentionsManager.html#event:mentionChanged">WebViewerInstance.MentionsManager#event:mentionChanged</a></li>
+				</ul>
+			</li>
+			
+			<li class="dropdown">
+				<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Global<b class="caret"></b></a>
+				<ul class="dropdown-menu ">
+					<li><a href="global.html#getInstance">getInstance</a></li><li><a href="global.html#WebViewer">WebViewer</a></li>
+				</ul>
+			</li>
+			
+		</ul>
+        
+            <div class="col-sm-3 col-md-3">
+                <form class="navbar-form" role="search">
+                    <div class="input-group">	
+											<input type="text" class="form-control" placeholder="Search" name="q" id="search-input">
+											<div class="input-group-btn">
+												<button class="btn btn-default" id="search-submit"><i class="glyphicon glyphicon-search"></i></button>
+											</div>
+                    </div>
+                </form>
+            </div>
+        
+	</div>
+
+</div>
+</div>
+
+
+<div class="container" id="toc-content">
+<div class="row">
+
+	
+	<div class="col-md-8">
+	
+		<div id="main">
+			
+
+	<h1 class="page-title">Namespace: CoreControls</h1>
+<section>
+
+<header>
+    
+        <h2>
+        CoreControls
+        </h2>
+        
+    
+</header>
+
+
+<article>
+    <div class="container-overview">
+    
+        
+            <div class="description">The namespace containing WebViewer's core user controls, including DocumentViewer control and the Document class.</div>
+        
+
+        
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+        
+    
+    </div>
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Classes</h3>
+
+        <dl>
+            <dt><a href="CoreControls.AnnotationHistoryManager.html">AnnotationHistoryManager</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.AnnotationManager.html">AnnotationManager</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.BlackBoxAnnotationManager.html">BlackBoxAnnotationManager</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.Bookmark.html">Bookmark</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.DisplayMode.html">DisplayMode</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.DisplayModeManager.html">DisplayModeManager</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.Document.html">Document</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.DocumentViewer.html">DocumentViewer</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.EditBoxManager.html">EditBoxManager</a></dt>
+            <dd></dd>
+        
+            <dt><a href="CoreControls.WidgetEditingManager.html">WidgetEditingManager</a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+
+    
+        <h3 class="subsection-title">Namespaces</h3>
+
+        <dl>
+            <dt><a href="namespaces.html#CoreControls.Search"><a href="CoreControls.Search.html">Search</a></a></dt>
+            <dd></dd>
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Members</h3>
+
+        <dl>
+            
+<hr>
+<dt class="name" id=".DisplayModes">
+    <h4 id=".DisplayModes"><span class="type-signature">&lt;static> </span>DisplayModes</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Display modes that control how the document's page are displayed
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Single</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displays one page at a time.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Continuous</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displays all the pages in a scrolling view in one column.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Facing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displays up to two pages at a time, side by side.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>FacingContinuous</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displays all pages in a scrolling view in two columns.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Cover</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Displays all pages in a scrolling view in two columns.  The first row has a single page in the second column.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>CoverFacing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Same as the Cover display mode except that it is not a scrolling view.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Custom</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Any custom display mode.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".FONT_STYLES">
+    <h4 id=".FONT_STYLES"><span class="type-signature">&lt;static> </span>FONT_STYLES</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the font style for the watermark text
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>BOLD</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">specifies that the text should be bolded</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ITALIC</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">specifies that the text should be italicized</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>UNDERLINE</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">specifies that the text should be underlined</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".MarkedStates">
+    <h4 id=".MarkedStates"><span class="type-signature">&lt;static> </span>MarkedStates</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the different Marked state values that you can apply to annotation status.
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Marked</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Marked State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Unmarked</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Unmarked State</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".PageRotation">
+    <h4 id=".PageRotation"><span class="type-signature">&lt;static> </span>PageRotation</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the different page rotation values that you can apply to pages.
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>E_0</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">0 degree rotation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>E_90</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">90 degree rotation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>E_180</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">180 degree rotation</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>E_270</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">270 degree rotation</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".ReviewStates">
+    <h4 id=".ReviewStates"><span class="type-signature">&lt;static> </span>ReviewStates</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the different review state values that you can apply to annotation status.
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Accepted</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Accepted State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Rejected</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Rejected State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Cancelled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Cancelled State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Completed</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Completed State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>None</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">None State</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SaveOptions">
+    <h4 id=".SaveOptions"><span class="type-signature">&lt;static> </span>SaveOptions</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the different save option values that you can use in the getFileData function.
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>INCREMENTAL</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Saves new data to the end of the file</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>REMOVE_UNUSED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Removes unused data when saving</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>HEX_STRINGS</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Save strings in hexadecimal format</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>OMIT_XREF</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Do not save cross reference table</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>LINEARIZED</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Optimize data for speed and remove unused data</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>COMPATIBILITY</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Maximize compatibility with older PDF consumers (e.g. the file will not use object and compressed XREF streams)</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".StateModel">
+    <h4 id=".StateModel"><span class="type-signature">&lt;static> </span>StateModel</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents the different state models that you can apply to annotation.
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Marked</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Marked State</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Review</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Review State</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt class="name" id=".SupportedFileFormats">
+    <h4 id=".SupportedFileFormats"><span class="type-signature">&lt;static> </span>SupportedFileFormats</h4>
+
+    
+</dt>
+<dd>
+    
+    <div class="description">
+        Represents all the supported file formats in WebViewer
+    </div>
+    
+
+    
+<dl class="details">
+    
+
+    <h5 class="subsection-title">Properties:</h5>
+
+    <dl>
+
+<table class="props table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>CLIENT</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Supported file formats when using WebViewer client side rendering</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>SERVER</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;string></span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Supported file formats when using WebViewer with WebViewer Server</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+</dl>
+
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        <dl>
+            
+<hr>
+<dt>
+    <h4 class="name" id=".BaseDocument"><span class="type-signature">&lt;static> </span>BaseDocument()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        BaseDocument is used to alert if a Document implementation is not following the Document interface.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".createDocument"><span class="type-signature">&lt;static> </span>createDocument(source [, options])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Creates an initialized CoreControls.Document instance.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>source</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">File</span>
+|
+
+<span class="param-type">ArrayBuffer</span>
+|
+
+<span class="param-type">Blob</span>
+|
+
+<span class="param-type"><a href="PDFNet.PDFDoc.html">PDFNet.PDFDoc</a></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Source parameter, path/url to document or File.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An object that can contain the following optional parameters.
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>l</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The license key for viewing PDF or Office files (PDF/Office only). You only need to use one of 'l' or 'licenseKey'.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>licenseKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The license key for viewing PDF or Office files (PDF/Office only). You only need to use one of 'l' or 'licenseKey'.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>docId</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An unique identifier for the document, used for offline mode.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onLoadingProgress</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A callback function for loading progress, function signature function(percent) {}.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>onError</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A callback function that will be called when error occurs in the process of creating a document. function signature function(e) {}</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>workerTransportPromise</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Promise.&lt;any></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The workerTransportPromise that should be used to load the document.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">function</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A password string or a function of the form function(callback) where callback is of the form function(password). This 'password' function will be called when a password is required to load a PDF document and should call the callback with the retrieved password.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>filename</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A filename that is used for the downloaded file, and for determining the extension when options.extension isn't used.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extension</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Used for specifying the extension of the document to be loaded. This is necessary if the URL/path does not contain the file extension or if you're loading a Blob/File.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>customHeaders</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An object containing custom HTTP headers to use when retrieving the document from the specified url. For example: {'Authorization' : 'Basic dXNlcm5hbWU6cGFzc3dvcmQ='}.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>useDownloader</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A boolean indicating whether Downloader should be used on urls (PDF only). https://www.pdftron.com/documentation/web/guides/usedownloader-option/.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>withCredentials</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to set the withCredentials property on the XMLHttpRequest.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pageSizes</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Array.&lt;object></span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An array of objects in the shape of { width: number, height: number }. Used to determine the page sizes when loading an image file.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>backendType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A string representing the "backend type" for rendering PDF documents. Pass "ems" to force the use of the ASM.js/WebAssembly worker or "wasm-threads" to use threaded WebAssembly.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>xodOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An object that contains the options for a XOD document.
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>decrypt</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Function to be called to decrypt a part of the XOD file. For default XOD AES encryption pass CoreControls.Encryption.decrypt.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>decryptOptions</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">An object with options for the decryption e.g. {p: "pass", type: "aes"} where is p is the password.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>streaming</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A boolean indicating whether to use http or streaming PartRetriever, it is recommended to keep streaming false for better performance. https://www.pdftron.com/documentation/web/guides/streaming-option.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>azureWorkaround</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether or not to workaround the issue of Azure not accepting range requests of a certain type. Enabling the workaround will add an extra HTTP request of overhead but will still allow documents to be loaded from other locations.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>startOffline</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">Whether to start loading the document in offline mode or not. This can be set to true if the document had previously been saved to an offline database using WebViewer APIs. You'll need to use this option to load from a completely offline state.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>pdftronServer</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A URL to the WebViewer server drop-in backend https://www.pdftron.com/documentation/web/guides/wv-server-deployment.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>cacheKey</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">A key that will be used for caching the document on WebViewer Server.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>forceClientSideInit</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">If set to true then when loading a document using WebViewer Server the document will always switch to client only rendering allowing page manipulation and the full API to be used.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loadAsPDF</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">If set to true then this will convert any office file passed in into a PDF document</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Promise that resolves when doc.loadAsync has been successfully called and returns CoreControls.Document instance.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="CoreControls.Document.html">CoreControls.Document</a>></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".disableEmbeddedJavaScript"><span class="type-signature">&lt;static> </span>disableEmbeddedJavaScript()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Disables the execution of embedded JavaScript
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".disableLogs"><span class="type-signature">&lt;static> </span>disableLogs(disabled)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Enables or disables all logs coming from WebViewer.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>disabled</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether or not to disable all WebViewer logs. Defaults to true</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".enableFullPDF"><span class="type-signature">&lt;static> </span>enableFullPDF(value)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Enable or disable use of the full version of PDFNetJS.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>value</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Whether to enable or disable the full version of PDFNetJS</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".forceBackendType"><span class="type-signature">&lt;static> </span>forceBackendType(backendType)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set default backend type. This method can be used for forced backend type forspecific workers, for example, "ems" for Emscripten worker type
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>backendType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">value for default backed type, e.g. ems, wasm-threads, jsworker.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getBuild"><span class="type-signature">&lt;static> </span>getBuild()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the specific hashed commit id that is used to build the current WebViewer version.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A hashed commit id
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getCurrentOfficeBackendType"><span class="type-signature">&lt;static> </span>getCurrentOfficeBackendType()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the current backend type being used.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Returns "ems" if Emscripten is being used, "wasm-threads" if threaded Wasm is being used and undefined if nothing is being used yet
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getCurrentPDFBackendType"><span class="type-signature">&lt;static> </span>getCurrentPDFBackendType()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the current backend type being used.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Returns "ems" if Emscripten is being used, "wasm-threads" if threaded Wasm is being used and undefined if nothing is being used yet
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getCurrentPDFBackendType"><span class="type-signature">&lt;static> </span>getCurrentPDFBackendType()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the current backend type loaded or being loaded
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Returns "ems" if Emscripten is being used or "wasm-threads" if threaded Wasm is being used
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getDefaultBackendType"><span class="type-signature">&lt;static> </span>getDefaultBackendType()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the default pdf backend type that should be used for this browser.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Returns a promise that resolve to a string. "ems" if Emscripten should be used, and "wasm-threads" if threaded Wasm should be used
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getExternalPath"><span class="type-signature">&lt;static> </span>getExternalPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of external scripts.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url external scripts.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getLocalWorkerPath"><span class="type-signature">&lt;static> </span>getLocalWorkerPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of the local worker files.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the path to CORSWorker.js/CoreWorker.js
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getOfficeAsmPath"><span class="type-signature">&lt;static> </span>getOfficeAsmPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of the Office asm worker.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url for WebOfficeWorker.br.js.mem.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getOfficeResourcePath"><span class="type-signature">&lt;static> </span>getOfficeResourcePath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of the Office worker.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url for OfficeWorker.js
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getPDFAsmPath"><span class="type-signature">&lt;static> </span>getPDFAsmPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of the PDF asm.js file PDFNetC.gz.js.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url for PDFNetC.gz.js.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getPDFResourcePath"><span class="type-signature">&lt;static> </span>getPDFResourcePath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of PDF resources.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url for PDFNetC.js.mem and PDFNet.res.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getPDFWorkerPath"><span class="type-signature">&lt;static> </span>getPDFWorkerPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Get the location of the PDF worker.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    the prefix url for PDFworker.js and ResizableWorker.js
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getResourcesPath"><span class="type-signature">&lt;static> </span>getResourcesPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the path to the resources folder
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The path to the resources folder
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getVersion"><span class="type-signature">&lt;static> </span>getVersion()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns the WebViewer version.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    WebViewer version
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".getWorkerPath"><span class="type-signature">&lt;static> </span>getWorkerPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets the path to the Web Worker JavaScript file
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The path to the worker
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">string</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".initOfficeWorkerTransports"><span class="type-signature">&lt;static> </span>initOfficeWorkerTransports(officeType, workerHandlers, l)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Begins setup of Office Worker Object.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>officeType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object representing an Office backend type ("ems" or "wasm-threads")</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>workerHandlers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object holding event and error handlers for the worker (workerLoadingProgress, emsWorkerError).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>l</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The license key to use for this worker. If undefined, initialization will be done in demo mode.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    a promise that will be resolved when worker transport initialization is complete.
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".initPDFWorkerTransports"><span class="type-signature">&lt;static> </span>initPDFWorkerTransports(pdfBackendType, workerHandlers, l)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Begins setup of PDF Worker Object.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pdfBackendType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object representing an PDF backend type ("ems" or "wasm-threads")</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>workerHandlers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object holding event and error handlers for the worker (workerLoadingProgress, emsWorkerError).</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>l</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The license key to use for this worker. If undefined PDFNet will be initialized in demo mode.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    a promise that will be resolved when worker transport initialization is complete.
+</div>
+
+
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".isDemoMode"><span class="type-signature">&lt;static> </span>isDemoMode()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns whether demo mode is active or not. Must be called after the document is loadedor after the call to CoreControls.initPDFWorkerTransports if you're calling it directly.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    true or false depending on whether the viewer is in demo mode or not
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".isFullPDFEnabled"><span class="type-signature">&lt;static> </span>isFullPDFEnabled()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Returns whether the full version of PDFNetJS is enabled or not.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    returns true if the full version is enabled and false otherwise.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">boolean</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".office2PDFBuffer"><span class="type-signature">&lt;static> </span>office2PDFBuffer(input, options)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>input</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+|
+
+<span class="param-type">ArrayBuffer</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Either a url from which to download the file or an ArrayBuffer containing the file data.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>options</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">An object containing conversion options
+                <h6 class="method-params-label method-subparams-label">Properties</h6>
+                
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>l</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The license key with which to initialize the SDK</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>extension</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">The extension of the input file. Should be passed in if the input doesn't specify the file extension.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    A promise that resolves to an ArrayBuffer containing the resulting PDF data.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">ArrayBuffer</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".preloadOfficeWorker"><span class="type-signature">&lt;static> </span>preloadOfficeWorker(officeBackendType, workerHandlers)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Begins setup of Office Worker Object. This can be used to load the workers before a license key has been loaded.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>officeBackendType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object representing an Office backend type ("ems" or "wasm-threads")</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>workerHandlers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object holding event and error handlers for the worker (workerLoadingProgress).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The worker object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".preloadPDFWorker"><span class="type-signature">&lt;static> </span>preloadPDFWorker(pdfBackendType, workerHandlers)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Begins setup of PDF Worker Object. This can be used to load the workers before a license key has been loaded.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>pdfBackendType</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object representing a PDF backend type ("ems" or "wasm-threads")</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>workerHandlers</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">object holding event and error handlers for the worker (workerLoadingProgress).</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    The worker object
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">object</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".resetOfficeWorker"><span class="type-signature">&lt;static> </span>resetOfficeWorker(worker)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Resets the worker so that the next time initOfficeWorkerTransports is called it will set up the worker transports with the specified worker.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>worker</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The new worker to use the next time initOfficeWorkerTransports is called</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".resetWorker"><span class="type-signature">&lt;static> </span>resetWorker()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Resets the worker so that the next time initPDFWorkerTransports is called it will set up the worker transports.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setAdvancedImageScaling"><span class="type-signature">&lt;static> </span>setAdvancedImageScaling(advanced)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Forces a higher level of accuracy in image downsampling at the expense of rendering performance.This function should be called before loading a document to ensure this setting is used.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>advanced</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">if true advanced image scaling will be used. Can alternatively pass a number forthe number of downsampling steps to take. Passing true is equivalent to passing 1.4.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".SetCachingLevel"><span class="type-signature">&lt;static> </span>SetCachingLevel(level)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the caching level between 0 and 10, where 0 is no caching and 10 uses a very large cache
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The level to set</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setColorManagement"><span class="type-signature">&lt;static> </span>setColorManagement( [boolean])</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Enables or color management for PDFNetJS backend. Color management is off by default.Enabling color management will better reflect correct color conversions but has a performance penalty.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+        <th>Argument</th>
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>boolean</code></td>
+            
+
+            <td class="type">
+            
+            </td>
+
+            
+                <td class="attributes">
+                
+                    &lt;optional><br>
+                
+
+                
+
+                
+                </td>
+            
+
+            
+
+            <td class="description last">value if true enable color management. Otherwise disable it.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setCustomFontURL"><span class="type-signature">&lt;static> </span>setCustomFontURL(url)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the URL at which PDFNetJS backend will request font resources for the purposesof font substitution. By default they are retrieved from the pdftron website.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>url</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The url at which font resources should be requested.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setEmscriptenHeapSize"><span class="type-signature">&lt;static> </span>setEmscriptenHeapSize(The)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Adjusts the up front heap size used by Emscripten. This method must be called before the worker isinitialized to change heap allocation behaviour. By default the heap size is set to 50331648 bytes.Note that decreasing the heap size very low or running complex operations may require a resize.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>The</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">number of bytes to allocate for the Emscripten heap.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setExternalPath"><span class="type-signature">&lt;static> </span>setExternalPath()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of external scripts.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setLocalWorkerPath"><span class="type-signature">&lt;static> </span>setLocalWorkerPath(workerPath, isExact)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the location of the local worker files CORSWorker.js/CoreWorker.js which will be different when setting the main worker path to another domain.Note that this path should be on the same domain as WebViewer is being loaded.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>workerPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The path to the local worker files</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>isExact</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">boolean</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">By default this function will add a trailing slash if it wasn't added but in rare cases you may not want this behavior and can pass true for isExact</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setOfficeAsmPath"><span class="type-signature">&lt;static> </span>setOfficeAsmPath(workerPath)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of the Office asm worker. This will override the location specified by CoreControls.setWorkerPath for Office worker files.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>workerPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the prefix url for WebOfficeWorker.br.js.mem.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setOfficeResourcePath"><span class="type-signature">&lt;static> </span>setOfficeResourcePath(workerPath)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of the Office resource worker. This will override thelocation specified by CoreControls.setWorkerPath for Office worker filesThis new officeResourcePath will be used in very specific situations whereworker files are located in different locations.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>workerPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the prefix url for WebOfficeWorker.js and .mem files</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setPDFAsmPath"><span class="type-signature">&lt;static> </span>setPDFAsmPath(workerPath)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of the PDF worker. This will override the location specified by CoreControls.setWorkerPath for PDF worker files.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>workerPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the prefix url for PDFNetC.gz.js.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setPDFResourcePath"><span class="type-signature">&lt;static> </span>setPDFResourcePath(resourcePath)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of PDF resources. This will override the location specified by CoreControls.setWorkerPath for PDF resource files.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>resourcePath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the prefix url for PDFNetC.js.mem and PDFNet.res.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setPDFWorkerPath"><span class="type-signature">&lt;static> </span>setPDFWorkerPath(workerPath)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the location of the PDF worker. This will override the location specified by CoreControls.setWorkerPath for PDF worker files.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>workerPath</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the prefix url for PDFworker.js and ResizableWorker.js</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".SetPreRenderLevel"><span class="type-signature">&lt;static> </span>SetPreRenderLevel(level)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Set the pre-render level between 0 and 10, where 0 has pre-rendering and 10 has a lot of pre-rendering.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>level</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">The level to set</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setProgressiveTime"><span class="type-signature">&lt;static> </span>setProgressiveTime(milliseconds)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Control the time between progressive events when rendering a more complex page.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>milliseconds</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the number of milliseconds between progressive events. By default this is disabled for XOD and 3 seconds (3000) otherwise.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setResourcesPath"><span class="type-signature">&lt;static> </span>setResourcesPath(path)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the path to the resources folder.
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Path to the resources folder relative to the HTML file</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id=".setWorkerPath"><span class="type-signature">&lt;static> </span>setWorkerPath(path)</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Sets the path to the Web Worker JavaScript file.By default the file is expected to be in the same directory as the html file of the viewerand the path should be specified relative to the html file
+    </div>
+    
+
+    
+
+    
+
+    
+    
+        <h5>Parameters:</h5>
+        
+
+<table class="params table table-striped">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>path</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">Path to the Web Worker JS file relative to the html file of the viewer</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="getBlackBoxAnnotationManager"><span class="type-signature"></span>getBlackBoxAnnotationManager()</h4>
+    
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Gets an instance of BlackBoxAnnotationManager
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    Resolves with a new instance of BlackBoxAnnotationManager
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;<a href="CoreControls.BlackBoxAnnotationManager.html">CoreControls.BlackBoxAnnotationManager</a>></span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        </dl>
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+		</div>
+	</div>
+
+	<div class="clearfix"></div>
+
+	
+		<div class="col-md-3">
+			<div id="toc" class="col-md-3 hidden-xs hidden-sm hidden-md"></div>
+		</div>
+	
+
+</div>
+</div>
+
+
+    <div class="modal fade" id="searchResults">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">Search results</h4>
+          </div>
+          <div class="modal-body"></div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          </div>
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div>
+
+
+<footer>
+
+
+<span class="jsdoc-message">
+	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.3</a>
+	
+		on 2020-10-07T13:13:53-07:00
+	
+	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
+</span>
+</footer>
+
+<script src="scripts/docstrap.lib.js"></script>
+<script src="scripts/toc.js"></script>
+
+    <script type="text/javascript" src="scripts/fulltext-search-ui.js"></script>
+
+
+<script>
+$( function () {
+	$( "[id*='$']" ).each( function () {
+		var $this = $( this );
+
+		$this.attr( "id", $this.attr( "id" ).replace( "$", "__" ) );
+	} );
+
+	$( ".tutorial-section pre, .readme-section pre, pre.prettyprint.source" ).each( function () {
+		var $this = $( this );
+
+		var example = $this.find( "code" );
+		exampleText = example.html();
+		var lang = /{@lang (.*?)}/.exec( exampleText );
+		if ( lang && lang[1] ) {
+			exampleText = exampleText.replace( lang[0], "" );
+			example.html( exampleText );
+			lang = lang[1];
+		} else {
+			var langClassMatch = example.parent()[0].className.match(/lang\-(\S+)/);
+			lang = langClassMatch ? langClassMatch[1] : "javascript";
+		}
+
+		if ( lang ) {
+
+			$this
+			.addClass( "sunlight-highlight-" + lang )
+			.addClass( "linenums" )
+			.html( example.html() );
+
+		}
+	} );
+
+	Sunlight.highlightAll( {
+		lineNumbers : false,
+		showMenu : true,
+		enableDoclinks : true
+	} );
+
+	$.catchAnchorLinks( {
+        navbarOffset: 10
+	} );
+	$( "#toc" ).toc( {
+		anchorName  : function ( i, heading, prefix ) {
+			return $( heading ).attr( "id" ) || ( prefix + i );
+		},
+		selectors   : "#toc-content h1,#toc-content h2,#toc-content h3,#toc-content h4",
+		showAndHide : false,
+		smoothScrolling: true
+	} );
+
+	$( "#main span[id^='toc']" ).addClass( "toc-shim" );
+	$( '.dropdown-toggle' ).dropdown();
+
+    $( "table" ).each( function () {
+      var $this = $( this );
+      $this.addClass('table');
+    } );
+
+} );
+</script>
+
+
+
+<!--Navigation and Symbol Display-->
+
+
+<!--Google Analytics-->
+
+<script>
+	
+     
+    
+</script>
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            SearcherDisplay.init();
+        });
+    </script>
+
+</body>
+</html>
